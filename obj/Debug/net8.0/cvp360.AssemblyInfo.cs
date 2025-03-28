@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("cvp360")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+36160a78eabc3aebdace935cc13b7f1df87df99c")]
 [assembly: System.Reflection.AssemblyProductAttribute("cvp360")]
 [assembly: System.Reflection.AssemblyTitleAttribute("cvp360")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
