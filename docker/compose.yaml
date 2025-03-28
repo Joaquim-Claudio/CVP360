@@ -1,0 +1,36 @@
+services:
+  database:
+    image: postgres:alpine3.19
+    container_name: cvp360.database
+    restart: always
+    ports:
+      - 5432:5432
+    networks:
+      - inner-cvp360
+    environment:
+      POSTGRES_USER: system.cvp360
+      POSTGRES_PASSWORD: CVP360_db
+    volumes:
+      - cvp360:/var/lib/postgresql/database
+      - ./sql:/docker-entrypoint-initdb.d
+
+  session:
+    image: redis:alpine3.19
+    container_name: cvp360.session
+    restart: always
+    ports:
+      - 6379:6379
+    networks:
+      - inner-cvp360
+    volumes:
+      - cvp360.session:/data
+
+volumes:
+  cvp360:
+    name: cvp360
+  cvp360.session:
+    name: cvp360.session
+
+networks:
+  inner-cvp360:
+    name: inner-cvp360
