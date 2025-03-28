@@ -1,0 +1,61 @@
+.LogBut{
+    background: linear-gradient(45deg, #FF0000, #DB0071);
+    color:white;
+    border: none;
+    border-radius: 8px;
+    width: 280px;
+    height: 35px;
+}
+
+.LoginPage{
+    height: 100vh;
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    background: url(../assets/images/Frame1.png) ;
+    background-size: cover;
+    background-position: center;
+}
+
+.RegisterBody{
+    width: 400px;
+    height: 570px;
+    color: white;   
+    border: solid 2px #FF0000;
+    border-radius: 35px;
+    background-color: rgba($color: #FFF, $alpha: 0.2);
+
+}
+
+.LoginBody{
+    width: 400px;
+    height: 450px;
+    color: white;   
+    border: solid 2px #FF0000;
+    border-radius: 35px;
+    background-color: rgba($color: #FFF, $alpha: 0.2);
+   
+}
+
+.LoginInput{
+    backdrop-filter: blur(4px);
+    border:solid 1px white;
+    backdrop-filter: blur(4px);
+    color: #FFF;
+    width: 280px;
+    height: 35px;
+    background: transparent;
+    border-radius: 8px;
+}
+
+.LoginInput::placeholder{
+    color: white;
+    font-size: 10pt;
+    padding: 20px;
+}
+
+.navbar{
+    background: linear-gradient(45deg, #FF0000, #DB0071);
+    color: #FFF;
+
+}
