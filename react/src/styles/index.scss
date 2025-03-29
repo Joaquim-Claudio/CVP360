@@ -138,6 +138,39 @@
 .event-cards-container {
     padding: 20px 0;
     margin: 0 -15px;
+    
+    &.scrollable {
+        overflow-x: auto;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        
+        &::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .event-cards-row {
+            display: flex;
+            padding: 0 15px;
+            gap: 20px;
+            
+            .event-card {
+                flex: 0 0 350px;
+            }
+        }
+    }
+    
+    &.grid {
+        .event-cards-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 0 15px;
+            
+            .event-card {
+                width: 100%;
+            }
+        }
+    }
 }
 
 .event-cards-row {
@@ -268,4 +301,324 @@
     background: linear-gradient(45deg, #FF0000, #DB0071);
     margin: 30px 0 20px 0;
     border-radius: 3px;
+}
+
+.swal2-popup-custom {
+    padding: 2.5rem;
+    border-radius: 25px;
+
+    .swal2-html-container {
+        margin: 0;
+        padding: 0;
+    }
+
+    input[type="range"] {
+        width: 100%;
+        height: 6px;
+        background: #e0e0e0;
+        border-radius: 3px;
+        outline: none;
+
+        &::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(45deg, #FF0000, #DB0071);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.2s ease;
+
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+
+        &::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(45deg, #FF0000, #DB0071);
+            border-radius: 50%;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s ease;
+
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+    }
+
+    /* The switch - the box around the slider */
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 40px;
+        height: 20px;  // Reduced from 24px to 20px
+
+        /* Hide default HTML checkbox */
+        input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+
+            &:checked + .slider {
+                background: linear-gradient(45deg, #FF0000, #DB0071);
+            }
+
+            &:checked + .slider:before {
+                transform: translateX(20px);
+            }
+        }
+
+        /* The slider */
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 20px;
+
+            &:before {
+                position: absolute;
+                content: "";
+                height: 16px;  // Reduced from 20px to 16px
+                width: 16px;   // Reduced from 20px to 16px
+                left: 2px;     // Reduced from 4px to 2px
+                bottom: 2px;   // Reduced from 4px to 2px
+                background-color: white;
+                transition: .4s;
+                border-radius: 50%;
+            }
+        }
+    }
+    
+    .swal2-close {
+        color: #333 !important;
+        font-size: 1.5rem !important;
+        top: 1.5rem !important;
+        right: 1.5rem !important;
+        width: 30px !important;
+        height: 30px !important;
+        border-radius: 50% !important;
+        background: #f8f9fa !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        transition: all 0.2s !important;
+        
+        &:hover {
+            background: #e9ecef !important;
+        }
+    }
+    
+    .swal2-cancel, .swal2-confirm {
+        padding: 0.5rem 1.5rem !important;
+        border-radius: 25px !important;
+        font-weight: 500 !important;
+        transition: all 0.2s !important;
+        text-transform: uppercase !important;
+        font-size: 0.9rem !important;
+        letter-spacing: 0.5px !important;
+        
+        &:hover {
+            transform: translateY(-2px) !important;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
+        }
+    }
+}
+
+.homepage-cards-container {
+    padding: 20px 0;
+    margin: 0 -15px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    
+    &::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .homepage-cards-row {
+        display: flex;
+        padding: 0 15px;
+        gap: 20px;
+        
+        .homepage-card {
+            flex: 0 0 350px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background: white;
+            position: relative;
+            
+            .card-image-container {
+                position: relative;
+                height: 40%;
+                width: 100%;
+            }
+            
+            .card-image {
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+                border-radius: 10px;
+            }
+
+            .date-box {
+                position: absolute;
+                bottom: 15px;
+                right: 15px;
+                background: white;
+                padding: 3px 4px;
+                border-radius: 8px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+                .day {
+                    font-size: 1.0rem;
+                    font-weight: bold;
+                    color: #333;
+                    line-height: 1;
+                }
+
+                .month {
+                    font-size: 0.8rem;
+                    color: #666;
+                    text-transform: uppercase;
+                    margin-top: 2px;
+                }
+            }
+            
+            .card-content {
+                padding: 15px;
+                padding-bottom: 60px;
+                
+                h1 {
+                    font-size: 1.2rem;
+                    margin-bottom: 5px;
+                    margin-top: 12px;
+                    color: #111111;
+                }
+                
+                h4 {
+                    font-size: 0.7rem;
+                    margin-bottom: 25px;
+                    color: #7e7d7d;
+                }
+                
+                h3 {
+                    font-size: 0.9rem;
+                    color: #333;
+                    font-weight: 500;
+                }
+            }
+
+            .saber-mais-btn {
+                position: absolute;
+                bottom: 15px;
+                right: 15px;
+                font-size: small;
+                background: linear-gradient(45deg, #FF0000, #DB0071);
+                color: white;
+                border: none;
+                border-radius: 15px;
+                padding: 3px 6px;
+                font-weight: 500;
+                cursor: pointer;
+                transition: opacity 0.2s;
+
+                &:hover {
+                    opacity: 0.9;
+                }
+            }
+        }
+    }
+}
+
+.donation-cards-container {
+    padding: 20px 0;
+    margin: 0 -15px;
+    
+    .donation-cards-row {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        padding: 0 15px;
+        
+        .donation-card {
+            width: 100%;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background: white;
+            position: relative;
+            
+            .card-image-container {
+                position: relative;
+                height: 40%;
+                width: 100%;
+            }
+            
+            .card-image {
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+                border-radius: 10px;
+            }
+
+            .price-box {
+                position: absolute;
+                bottom: 15px;
+                right: 15px;
+                background: linear-gradient(45deg, #FF0000, #DB0071);
+                border-radius: 15px;
+                padding: 3px 6px;
+                color: white;
+                font-weight: 500;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+                display: flex;
+                align-items: center;
+                gap: 2px;
+
+                .amount {
+                    font-size: 1.0rem;
+                }
+
+                .currency {
+                    font-size: 0.8rem;
+                    opacity: 0.9;
+                }
+            }
+            
+            .card-content {
+                padding: 15px;
+                padding-bottom: 60px;
+                
+                h1 {
+                    font-size: 1.2rem;
+                    margin-bottom: 5px;
+                    margin-top: 12px;
+                    color: #111111;
+                }
+                
+                h4 {
+                    font-size: 0.7rem;
+                    margin-bottom: 25px;
+                    color: #7e7d7d;
+                }
+                
+                h3 {
+                    font-size: 0.9rem;
+                    color: #333;
+                    font-weight: 500;
+                }
+            }
+        }
+    }
 }

@@ -29,9 +29,9 @@ function Doacao() {
                     </div>
                     <div className="container mt-5">
                         <h1 className="mb-3">Doações Recentes</h1>
-                        <div className="event-cards-container">
-                            <div className="event-cards-row">
-                                <div className="event-card">
+                        <div className="donation-cards-container">
+                            <div className="donation-cards-row">
+                                <div className="donation-card">
                                     <div className="card-image-container">
                                         <img src={imageEvent} alt="Donation 1" className="card-image" />
                                         <div className="price-box">
@@ -45,7 +45,7 @@ function Doacao() {
                                         <h3>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</h3>
                                     </div>
                                 </div>
-                                <div className="event-card">
+                                <div className="donation-card">
                                     <div className="card-image-container">
                                         <img src={imageEvent} alt="Donation 2" className="card-image" />
                                         <div className="price-box">
@@ -59,7 +59,7 @@ function Doacao() {
                                         <h3>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</h3>
                                     </div>
                                 </div>
-                                <div className="event-card">
+                                <div className="donation-card">
                                     <div className="card-image-container">
                                         <img src={imageEvent} alt="Donation 3" className="card-image" />
                                         <div className="price-box">
@@ -73,7 +73,7 @@ function Doacao() {
                                         <h3>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</h3>
                                     </div>
                                 </div>
-                                <div className="event-card">
+                                <div className="donation-card">
                                     <div className="card-image-container">
                                         <img src={imageEvent} alt="Donation 4" className="card-image" />
                                         <div className="price-box">
@@ -87,7 +87,7 @@ function Doacao() {
                                         <h3>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</h3>
                                     </div>
                                 </div>
-                                <div className="event-card">
+                                <div className="donation-card">
                                     <div className="card-image-container">
                                         <img src={imageEvent} alt="Donation 5" className="card-image" />
                                         <div className="price-box">
@@ -101,7 +101,7 @@ function Doacao() {
                                         <h3>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</h3>
                                     </div>
                                 </div>
-                                <div className="event-card">
+                                <div className="donation-card">
                                     <div className="card-image-container">
                                         <img src={imageEvent} alt="Donation 6" className="card-image" />
                                         <div className="price-box">
