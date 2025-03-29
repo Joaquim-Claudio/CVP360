@@ -16,6 +16,7 @@ public class RegisterController (  AppDbContext context,
     
     private readonly static double SESSION_EXPIRE_TIME_IN_HOURS = 12;
     public readonly static string DATA_PROTECTOR_NAME = "account.protector";
+    private readonly static string DEFAULT_USER_PROFILE = "Donor"; 
     private readonly AppDbContext _context = context;
     private readonly IDistributedCache _session = session;
     private readonly IDataProtector _protector = provider.CreateProtector(DATA_PROTECTOR_NAME);
@@ -43,6 +44,7 @@ public class RegisterController (  AppDbContext context,
 
             _user.Email = _user.Email.ToLower();
             _user.Password = passwordService.HashPassword(new(), _user.Password);
+            _user.Profile ??= _context.Profiles.Where(p => p.Name.Equals(DEFAULT_USER_PROFILE)).First();
 
             using var _transaction = await _context.Database.BeginTransactionAsync();
 

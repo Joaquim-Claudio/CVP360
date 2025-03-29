@@ -6,5 +6,5 @@ namespace CVP360.dbContext;
 
 public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(options) {
     public DbSet<UserModel> Users{get; set;}
-
+    public DbSet<Profile> Profiles{get; set;}
 }

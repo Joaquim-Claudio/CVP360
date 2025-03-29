@@ -6,6 +6,7 @@ using CVP360.UserData;
 using CVP360.Models;
 using CVP360.dbContext;
 using System.Text.Json;
+using Microsoft.EntityFrameworkCore;
 
 namespace CVP360.Controllers;
 
@@ -30,7 +31,10 @@ public class LoginController (  AppDbContext context,
 
         try {
             
-            var result = _context.Users.Where(p => p.Email.Equals(credentials.Username.ToLower())).ToList();
+            var result = _context.Users
+                                    .Include(p => p.Profile)
+                                    .Where(p => p.Email.Equals(credentials.Username.ToLower()))
+                                    .ToList();
 
             if(result == null || result.Count == 0) {
                 Console.WriteLine($"[{DateTime.Now}] From: {remote_ip} \"POST /api/login {protocol}\" 404");
