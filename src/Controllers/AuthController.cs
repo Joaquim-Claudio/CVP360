@@ -35,7 +35,7 @@ public class AuthController (IDistributedCache session) : Controller {
                 return Unauthorized("Session expired");
             }
 
-            UserModel? _user = JsonSerializer.Deserialize<UserModel>(jsonData) ?? throw new Exception();
+            var _user = JsonSerializer.Deserialize<UserModel>(jsonData) ?? throw new Exception();
             _user.Password = "";
             
             Console.WriteLine($"[{DateTime.Now}] From: {remote_ip} \"GET /api/auth {protocol}\" 200");

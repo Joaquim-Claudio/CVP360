@@ -32,17 +32,61 @@ public class LoginController (  AppDbContext context,
         try {
             
             var result = _context.Users
-                                    .Include(p => p.Profile)
                                     .Where(p => p.Email.Equals(credentials.Username.ToLower()))
-                                    .ToList();
+                                    .Select(p => new {
+                                        p.Id,
+                                        p.FullName,
+                                        p.BirthDate,
+                                        p.Email,
+                                        p.Password,
+                                        p.PhoneNumber,
+                                        p.Nif,
+                                        Profile = p.Profile != null ? new { 
+                                            p.Profile.Id, 
+                                            p.Profile.Name,
+                                            p.Profile.ExtendedName } 
+                                            : null,
+                                        CreditCards = p.CreditCards.Select(c => new {
+                                            c.Id,
+                                            c.Number,
+                                            c.Name,
+                                            c.ExpireDate,
+                                            c.Issuer
+                                        }).ToList()
+                                    })
+                                    .FirstOrDefault();
 
-            if(result == null || result.Count == 0) {
+            if(result == null) {
                 Console.WriteLine($"[{DateTime.Now}] From: {remote_ip} \"POST /api/login {protocol}\" 404");
                 return NotFound();
             }
 
-            UserModel _user = result.First();
-            string hashedPassword = _user.Password;
+            UserModel _user = new()
+            {
+                Id = result.Id,
+                FullName = result.FullName,
+                BirthDate = result.BirthDate,
+                Email = result.Email,
+                Password = result.Password,
+                PhoneNumber = result.PhoneNumber,
+                Nif = result.Nif,
+                Profile = result.Profile != null ? new Profile
+                {
+                    Id = result.Profile.Id,
+                    Name = result.Profile.Name,
+                    ExtendedName = result.Profile.ExtendedName
+                } : null,
+                CreditCards = result.CreditCards != null ? [.. result.CreditCards.Select(c => new CreditCard
+                {
+                    Id = c.Id,
+                    Number = c.Number,
+                    Name = c.Name,
+                    ExpireDate = c.ExpireDate,
+                    Issuer = c.Issuer
+                })] : []
+            };
+            
+            string? hashedPassword = _user.Password;
 
             if(passwordService.VerifyHashedPassword(new(), hashedPassword, credentials.Password) == PasswordVerificationResult.Failed) {
                 Console.WriteLine($"[{DateTime.Now}] From: {remote_ip} \"POST /api/login {protocol}\" 404");
@@ -61,9 +105,9 @@ public class LoginController (  AppDbContext context,
                             HttpOnly = true,
                             Secure = true
                         });
-            
+
             Console.WriteLine($"[{DateTime.Now}] From: {remote_ip} \"POST /api/login {protocol}\" 200");
-            return Ok();
+            return Ok(_user);
 
         } catch (Exception e) {
 
