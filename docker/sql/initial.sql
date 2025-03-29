@@ -98,14 +98,54 @@ INSERT INTO Users (FullName, BirthDate, PhoneNumber, Nif, ProfileId)
 VALUES ('Diogo Pinheiro', '1996-06-15', '922369221', '305689444', (SELECT Id FROM Profile WHERE Name = 'Admin')),
        ('João Pedro Júnior', '1977-05-22', '935874441', '225874136', (SELECT Id FROM Profile WHERE Name = 'Donor')),
        ('Mário George Morais de Oliveira Igreja', '2004-04-13', '932555878', '298874441', (SELECT Id FROM Profile WHERE Name = 'Editor'));
-/*
-INSERT INTO enrollmentstatus()
-VALUES
 
-INSERT INTO enrollment()
-VALUES
+INSERT INTO enrollmentstatus(status)
+VALUES('Ativo'),
+      ('Encerrado'),
+      ('Aguarda Pagamento');
 
 
-INSERT INTO project()
+INSERT INTO enrollment(date, value, enstatusid, userid)
+VALUES('2025-03-29', '10',(SELECT Id FROM enrollmentstatus WHERE status = 'Aguarda Pagamento') ),
+      ('2025-01-03', '1.99', (SELECT Id FROM enrollmentstatus WHERE status = 'Encerrado')),
+      ('2025-02-05', '50', (SELECT Id FROM enrollmentstatus WHERE status = 'Ativo')),
+      ('2025-02-05', '30', (SELECT Id FROM enrollmentstatus WHERE status = 'Encerrado'))
+
+;
+
+INSERT INTO project (title, description, startdate, enddate, actiontext, imgurl)
 VALUES
- */
+    ('Campanha de Arrecadação de Alimentos',
+     'Projeto destinado a arrecadar alimentos não perecíveis para as famílias carenciadas em diversas regiões.',
+     '2025-04-01',
+     '2025-05-01',
+     'Doe alimentos e ajude a combater a fome!',
+     ''),
+
+    ('Reabilitação de Infraestruturas de Saúde',
+     'Reabilitação de centros de saúde em áreas rurais, proporcionando melhores condições de atendimento às populações.',
+     '2025-03-01',
+     '2025-12-31',
+     'Ajude-nos a melhorar os centros de saúde da sua região.',
+     ''),
+
+    ('Apoio a Vítimas de Catástrofes Naturais',
+     'Projeto de emergência para fornecer assistência a vítimas de desastres naturais, incluindo água, alimentos e abrigo.',
+     '2025-03-15',
+     '2025-06-15',
+     'Faça uma doação para ajudar as vítimas de desastres naturais.',
+     ''),
+
+    ('Educação para Prevenção de Doenças',
+     'Campanha educativa sobre a prevenção de doenças transmissíveis, com foco em higiene e vacinação.',
+     '2025-05-01',
+     '2025-08-01',
+     'Doe para ajudar a educar sobre a prevenção de doenças.',
+     ''),
+
+    ('Apoio Psicológico a Refugiados',
+     'Oferecer apoio psicológico e assistência a refugiados e deslocados internos que sofreram traumas devido a conflitos e guerras.',
+     '2025-06-01',
+     '2025-09-01',
+     'Ajude a proporcionar apoio psicológico aos refugiados.',
+     '');
