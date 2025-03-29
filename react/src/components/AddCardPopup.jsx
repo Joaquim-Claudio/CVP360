@@ -4,7 +4,7 @@ import Swal from 'sweetalert2';
 function AddCardPopup() {
     return Swal.fire({
         html: `
-            <div style="display: flex; flex-direction: column; text-align: start; padding: 20px;">
+                <div style="display: flex; flex-direction: column; text-align: start; padding: 20px;">
                 <div style="margin-bottom: 30px;">
                     <h3 style="color: #333; font-size: 1.5rem;">Adicionar Novo Cartão</h3>
                 </div>
@@ -20,7 +20,8 @@ function AddCardPopup() {
                     <div style="width: 50%;">
                         <div style="font-size: 0.8rem; color: #666; margin-bottom: 5px;">Código de Segurança</div>
                         <input type="text" style="width: 100%; padding: 12px; border: 1px solid #dee2e6; border-radius: 5px; font-size: 0.9rem; outline: none; transition: border-color 0.2s;" placeholder="***">
-                    </div>
+
+                        </div>
                 </div>
                 <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 30px;">
                     <button class="swal2-cancel swal2-styled" style="background: #f8f9fa !important; color: #333 !important; border-radius: 25px !important; padding: 8px 25px !important;">Cancelar</button>

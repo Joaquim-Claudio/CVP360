@@ -3,14 +3,12 @@ import Frame1 from "../assets/images/Frame1.png";
 
 function ImageCarousel() {
     const [currentIndex, setCurrentIndex] = useState(0);
-    const images = [Frame1, Frame1, Frame1, Frame1, Frame1]; // Using same image multiple times
+    const images = [Frame1, Frame1, Frame1, Frame1, Frame1]; // Using same image multiple times - to change 
 
     useEffect(() => {
         const timer = setInterval(() => {
-            setCurrentIndex((prevIndex) => 
-                prevIndex === images.length - 1 ? 0 : prevIndex + 1
-            );
-        }, 5000); // Change image every 5 seconds
+            setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+        }, 5000); 
 
         return () => clearInterval(timer);
     }, []);
