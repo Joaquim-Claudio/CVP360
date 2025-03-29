@@ -75,22 +75,22 @@ VALUES('CVP360', '/'),
       ('Control Panel', '/ControlPanel');
 
 INSERT INTO profilepage(ProfileId, PageId)
-VALUES((SELECT Id FROM Profile WHERE Name = 'Admin'), (SELECT name FROM page WHERE Name ='CVP360') ),
-      ((SELECT Id FROM Profile WHERE Name = 'Admin'), (SELECT name FROM page WHERE Name ='Login')),
-      ((SELECT Id FROM Profile WHERE Name = 'Admin'), (SELECT name FROM page WHERE Name ='Register')),
-      ((SELECT Id FROM Profile WHERE Name = 'Admin'), (SELECT name FROM page WHERE Name ='Homepage')),
-      ((SELECT Id FROM Profile WHERE Name = 'Admin'), (SELECT name FROM page WHERE Name ='Donations')),
-      ((SELECT Id FROM Profile WHERE Name = 'Admin'), (SELECT name FROM page WHERE Name ='Profile')),
-      ((SELECT Id FROM Profile WHERE Name = 'Admin'), (SELECT name FROM page WHERE Name ='Control Panel')),
+VALUES((SELECT Id FROM Profile WHERE Name = 'Admin'), (SELECT Id FROM page WHERE Name ='CVP360') ),
+      ((SELECT Id FROM Profile WHERE Name = 'Admin'), (SELECT Id FROM page WHERE Name ='Login')),
+      ((SELECT Id FROM Profile WHERE Name = 'Admin'), (SELECT Id FROM page WHERE Name ='Register')),
+      ((SELECT Id FROM Profile WHERE Name = 'Admin'), (SELECT Id FROM page WHERE Name ='Homepage')),
+      ((SELECT Id FROM Profile WHERE Name = 'Admin'), (SELECT Id FROM page WHERE Name ='Donations')),
+      ((SELECT Id FROM Profile WHERE Name = 'Admin'), (SELECT Id FROM page WHERE Name ='Profile')),
+      ((SELECT Id FROM Profile WHERE Name = 'Admin'), (SELECT Id FROM page WHERE Name ='Control Panel')),
 
-      ((SELECT Id FROM Profile WHERE Name = 'Donor'), (SELECT name FROM page WHERE Name ='CVP360') ),
-      ((SELECT Id FROM Profile WHERE Name = 'Donor'), (SELECT name FROM page WHERE Name ='Login')),
-      ((SELECT Id FROM Profile WHERE Name = 'Donor'), (SELECT name FROM page WHERE Name ='Register')),
-      ((SELECT Id FROM Profile WHERE Name = 'Donor'), (SELECT name FROM page WHERE Name ='Homepage')),
-      ((SELECT Id FROM Profile WHERE Name = 'Donor'), (SELECT name FROM page WHERE Name ='Donations')),
-      ((SELECT Id FROM Profile WHERE Name = 'Donor'), (SELECT name FROM page WHERE Name ='Profile')),
+      ((SELECT Id FROM Profile WHERE Name = 'Donor'), (SELECT Id FROM page WHERE Name ='CVP360') ),
+      ((SELECT Id FROM Profile WHERE Name = 'Donor'), (SELECT Id FROM page WHERE Name ='Login')),
+      ((SELECT Id FROM Profile WHERE Name = 'Donor'), (SELECT Id FROM page WHERE Name ='Register')),
+      ((SELECT Id FROM Profile WHERE Name = 'Donor'), (SELECT Id FROM page WHERE Name ='Homepage')),
+      ((SELECT Id FROM Profile WHERE Name = 'Donor'), (SELECT Id FROM page WHERE Name ='Donations')),
+      ((SELECT Id FROM Profile WHERE Name = 'Donor'), (SELECT Id FROM page WHERE Name ='Profile')),
 
-      ((SELECT Id FROM Profile WHERE Name = 'Editor'), (SELECT name FROM page WHERE Name ='Control Panel'));
+      ((SELECT Id FROM Profile WHERE Name = 'Editor'), (SELECT Id FROM page WHERE Name ='Control Panel'));
 
 
 
