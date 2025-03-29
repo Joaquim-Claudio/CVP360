@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Frame1 from "../assets/images/Frame1.png";
 import imageEvent from "../assets/images/imageEvent.png";
 import Swal from 'sweetalert2';
+import ImageCarousel from "../components/ImageCarousel";
 
 function HomePage(){
     const handleSubscribe = () => {
@@ -45,8 +46,8 @@ function HomePage(){
 
     return(
         <>
-            <nav className="navbar">
-                <div className="container-fluid">
+        <nav className="navbar">
+        <div className="container-fluid">
                     <a className="navbar-brand fw-lighter text-light fs-2" href="#">CVP<span className="fs-2 fw-bold text-light">360</span></a>
                     <div className="nav-links">
                         <Link to="/" className="text-light text-decoration-none me-3 px-5">Home</Link>
@@ -57,14 +58,14 @@ function HomePage(){
                             <div className="user-name">John Doe</div>
                             <div className="user-role">Volunteer</div>
                         </div>
-                        <div className="user-image">
+                        <Link to="/profile" className="user-image">
                             <img src={imageEvent} alt="User Profile" />
-                        </div>
+                        </Link>
                     </div>
-                </div>
-            </nav>
+        </div>
+        </nav>
             <div className="main-content">
-                <img src={Frame1} alt="Frame1" className="img-fluid w-100" style={{ height: '50vh', objectFit: 'cover' }} />
+                <ImageCarousel />
             </div>
             <div className="container mt-5">
                 <h1 className="mb-3 mt-5">Eventos</h1>

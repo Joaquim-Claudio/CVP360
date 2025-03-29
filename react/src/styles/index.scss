@@ -24,7 +24,6 @@
     border: solid 2px #FF0000;
     border-radius: 35px;
     background-color: rgba($color: #FFF, $alpha: 0.2);
-
 }
 
 .LoginBody{
@@ -601,7 +600,7 @@
                 
                 h1 {
                     font-size: 1.2rem;
-                    margin-bottom: 5px;
+                    margin-bottom: 0;
                     margin-top: 12px;
                     color: #111111;
                 }
@@ -619,5 +618,249 @@
                 }
             }
         }
+    }
+}
+
+
+.profile-container {
+    display: flex;
+    gap: 40px;
+}
+
+.profile-image-section {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-image-container {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-top: 20px;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.profile-info-section {
+    width: 70%;
+}
+
+.user-info-section, .bank-info-section {
+    margin-bottom: 40px;
+
+    h2 {
+        font-size: 1.8rem;
+        font-weight: 600;
+        margin-bottom: 30px;
+        color: #333;
+    }
+}
+
+.info-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.info-item {
+    .info-label {
+        font-size: 0.7rem;
+        color: #666;
+        margin-bottom: 0;
+    }
+
+    .info-value {
+        font-size: 1.1rem;
+        color: #333;
+        margin-bottom: 0;
+    }
+}
+
+.bank-info-section {
+    h3 {
+        font-size: 1.2rem;
+        font-weight: 500;
+        margin-bottom: 20px;
+        color: #444;
+    }
+}
+
+.add-card-btn {
+    width: 100%;
+    background: #fdfdfd;
+    color: #666;
+    border: 1px solid #dee2e6;
+    padding: 12px 25px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-align: center;
+    margin-top: 20px;
+    transition: all 0.2s ease;
+}
+
+.card-display-box {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+    .card-name {
+        font-size: 1.1rem;
+        font-weight: 500;
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+    .card-details {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        padding-bottom: 2px;
+
+        .card-number-section {
+            width: 50%;
+            .card-label {
+                font-size: 0.8rem;
+                color: #666;
+                margin-bottom: 5px;
+            }
+
+            .card-value {
+                font-size: 1rem;
+                color: #333;
+                font-weight: 500;
+            }
+        }
+
+        .card-expiry-section {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            position: relative;
+            padding-left: 20px;
+
+            &::before {
+                content: '|';
+                position: absolute;
+                left: 0;
+                top: 30%;
+                transform: translateY(-50%);
+                color: #4e4e4e;
+                font-weight: 10;
+                font-size: 3.0rem;
+            }
+
+            .card-label {
+                font-size: 0.8rem;
+                color: #666;
+                margin-bottom: 5px;
+            }
+
+            .card-value {
+                font-size: 1rem;
+                color: #333;
+                font-weight: 500;
+            }
+        }
+    }
+
+    .card-actions {
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+
+        .card-btn {
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+
+            &.remove-btn {
+                background: white;
+                color: #333;
+                border: 2px solid transparent;
+                background-clip: padding-box;
+                position: relative;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: -2px;
+                    right: -2px;
+                    bottom: -2px;
+                    left: -2px;
+                    background: linear-gradient(45deg, #FF0000, #DB0071);
+                    border-radius: 20px;
+                    z-index: -1;
+                }
+            }
+
+            &.edit-btn {
+                background: linear-gradient(45deg, #FF0000, #DB0071);
+                color: white;
+                border: none;
+            }
+        }
+    }
+}
+
+.carousel-container {
+    width: 100%;
+    height: 50vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel-wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide {
+    flex: 0 0 100%;
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.carousel-indicators {
+    position: absolute;
+    bottom: 20px;
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+}
+
+.indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &.active {
+        background: white;
     }
 }
