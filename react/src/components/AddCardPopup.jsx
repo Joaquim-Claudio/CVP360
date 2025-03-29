@@ -1,31 +1,31 @@
 import React from 'react';
 import Swal from 'sweetalert2';
+import '../styles/AddCardPopup.scss';
 
 function AddCardPopup() {
     return Swal.fire({
         html: `
-                <div style="display: flex; flex-direction: column; text-align: start; padding: 20px;">
-                <div style="margin-bottom: 30px;">
-                    <h3 style="color: #333; font-size: 1.5rem;">Adicionar Novo Cartão</h3>
+            <div class="add-card-popup">
+                <div class="title">
+                    <h3>Adicionar Novo Cartão</h3>
                 </div>
-                <div style="margin-bottom: 30px;">
-                    <div style="font-size: 0.8rem; color: #666; margin-bottom: 5px;">Número do Cartão</div>
-                    <input type="text" style="width: 100%; padding: 12px; border: 1px solid #dee2e6; border-radius: 5px; font-size: 0.9rem; outline: none; transition: border-color 0.2s;" placeholder="**** **** **** ****">
+                <div class="card-number">
+                    <div class="label">Número do Cartão</div>
+                    <input type="text" placeholder="**** **** **** ****">
                 </div>
-                <div style="display: flex; gap: 20px;">
-                    <div style="width: 50%;">
-                        <div style="font-size: 0.8rem; color: #666; margin-bottom: 5px;">Data de Validade</div>
-                        <input type="text" style="width: 100%; padding: 12px; border: 1px solid #dee2e6; border-radius: 5px; font-size: 0.9rem; outline: none; transition: border-color 0.2s;" placeholder="MM/AA">
+                <div class="card-details">
+                    <div class="detail-group">
+                        <div class="label">Data de Validade</div>
+                        <input type="text" placeholder="MM/AA">
                     </div>
-                    <div style="width: 50%;">
-                        <div style="font-size: 0.8rem; color: #666; margin-bottom: 5px;">Código de Segurança</div>
-                        <input type="text" style="width: 100%; padding: 12px; border: 1px solid #dee2e6; border-radius: 5px; font-size: 0.9rem; outline: none; transition: border-color 0.2s;" placeholder="***">
-
-                        </div>
+                    <div class="detail-group">
+                        <div class="label">Código de Segurança</div>
+                        <input type="text" placeholder="***">
+                    </div>
                 </div>
-                <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 30px;">
-                    <button class="swal2-cancel swal2-styled" style="background: #f8f9fa !important; color: #333 !important; border-radius: 25px !important; padding: 8px 25px !important;">Cancelar</button>
-                    <button class="swal2-confirm swal2-styled" style="background: linear-gradient(45deg, #FF0000, #DB0071) !important; border-radius: 25px !important; padding: 8px 25px !important;">Adicionar</button>
+                <div class="button-group">
+                    <button class="swal2-cancel swal2-styled cancel-btn" onclick="event.preventDefault(); Swal.close();">Cancelar</button>
+                    <button class="swal2-confirm swal2-styled confirm-btn" onclick="event.preventDefault(); Swal.close();">Adicionar</button>
                 </div>
             </div>
         `,
@@ -34,7 +34,15 @@ function AddCardPopup() {
         width: '60%',
         customClass: {
             popup: 'swal2-popup-custom'
-        }
+        },
+        allowOutsideClick: false,
+        allowEscapeKey: false,
+        allowEnterKey: false,
+        showDenyButton: false,
+        showCancelButton: false,
+        confirmButtonText: '',
+        cancelButtonText: '',
+        denyButtonText: ''
     });
 }
 

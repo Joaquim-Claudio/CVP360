@@ -1,0 +1,95 @@
+.subscribe-popup {
+    display: flex;
+    gap: 10px;
+    text-align: start;
+
+    .image-section {
+        width: 35%;
+        height: 100%;
+
+        img {
+            width: 95%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+    }
+
+    .content-section {
+        width: 65%;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+
+        h3 {
+            margin-bottom: 5px;
+            color: #333;
+            font-size: 1.5rem;
+        }
+
+        .description {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 0.7rem;
+        }
+
+        .details {
+            color: #000;
+            font-size: 0.85rem;
+            margin-bottom: 120px;
+        }
+
+        .divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(45deg, #FF0000, #DB0071);
+        }
+
+        .bottom-section {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            padding-top: 5px;
+
+            .support-text {
+                background: linear-gradient(45deg, #FF0000, #DB0071);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                font-weight: 500;
+                font-size: 0.7rem;
+            }
+
+            .monthly-donation {
+                display: flex;
+                align-items: center;
+                gap: 5px;
+
+                span {
+                    font-weight: 500;
+                    color: #333;
+                    font-size: 0.75rem;
+                }
+            }
+
+            .button-group {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-top: 20px;
+
+                .cancel-btn {
+                    background: #f8f9fa !important;
+                    color: #333 !important;
+                    border-radius: 25px !important;
+                    padding: 8px 25px !important;
+                }
+
+                .confirm-btn {
+                    background: linear-gradient(45deg, #FF0000, #DB0071) !important;
+                    border-radius: 25px !important;
+                    padding: 8px 25px !important;
+                }
+            }
+        }
+    }
+} 

@@ -4,32 +4,33 @@ import Frame1 from "../assets/images/Frame1.png";
 import imageEvent from "../assets/images/imageEvent.png";
 import Swal from 'sweetalert2';
 import ImageCarousel from "../components/ImageCarousel";
+import '../styles/SubscribePopup.scss';
 
 function HomePage(){
     const handleSubscribe = () => {
         Swal.fire({
             html: `
-                <div style="display: flex; gap: 10px; text-align: start;">
-                    <div style="width: 35%; height: 100%;">
-                        <img src="${imageEvent}" style="width: 95%; height: 350px; object-fit: cover; border-radius: 15px;" alt="Event Image">
+                <div class="subscribe-popup">
+                    <div class="image-section">
+                        <img src="${imageEvent}" alt="Event Image">
                     </div>
-                    <div style="width: 65%; display: flex; flex-direction: column; height: 100%;">
-                        <h3 style="margin-bottom: 5px; color: #333; font-size: 1.5rem;">Doação de Sangue</h3>
-                        <p style="color: #666; margin-bottom: 30px; font-size: 0.7rem;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
-                        <p style="color: #000; font-size: 0.85rem; margin-bottom: 120px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
-                        <div style="width: 100%; height: 1px; background: linear-gradient(45deg, #FF0000, #DB0071);"></div>
-                        <div style="display: flex; flex-direction: column; gap: 5px; padding-top: 5px;">
-                            <span style="background: linear-gradient(45deg, #FF0000, #DB0071); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 500; font-size: 0.7rem;">APOIAR O PROJETO</span>
-                            <div style="display: flex; align-items: center; gap: 5px;">
-                                <span style="font-weight: 500; color: #333; font-size: 0.75rem;">Doação mensal</span>
+                    <div class="content-section">
+                        <h3>Doação de Sangue</h3>
+                        <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+                        <p class="details">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+                        <div class="divider"></div>
+                        <div class="bottom-section">
+                            <span class="support-text">APOIAR O PROJETO</span>
+                            <div class="monthly-donation">
+                                <span>Doação mensal</span>
                                 <label class="switch">
                                     <input type="checkbox">
                                     <span class="slider round"></span>
                                 </label>
                             </div>
-                            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px;">
-                                <button class="swal2-cancel swal2-styled" style="background: #f8f9fa !important; color: #333 !important; border-radius: 25px !important; padding: 8px 25px !important;">Cancelar</button>
-                                <button class="swal2-confirm swal2-styled" style="background: linear-gradient(45deg, #FF0000, #DB0071) !important; border-radius: 25px !important; padding: 8px 25px !important;">Confirmar</button>
+                            <div class="button-group">
+                                <button class="swal2-cancel swal2-styled cancel-btn" onclick="event.preventDefault(); Swal.close();">Cancelar</button>
+                                <button class="swal2-confirm swal2-styled confirm-btn" onclick="event.preventDefault(); Swal.close();">Confirmar</button>
                             </div>
                         </div>
                     </div>
@@ -40,7 +41,15 @@ function HomePage(){
             width: '70%',
             customClass: {
                 popup: 'swal2-popup-custom'
-            }
+            },
+            allowOutsideClick: false,
+            allowEscapeKey: false,
+            allowEnterKey: false,
+            showDenyButton: false,
+            showCancelButton: false,
+            confirmButtonText: '',
+            cancelButtonText: '',
+            denyButtonText: ''
         });
     };
 

@@ -1,0 +1,75 @@
+.add-card-popup {
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    padding: 20px;
+
+    .title {
+        margin-bottom: 30px;
+        h3 {
+            color: #333;
+            font-size: 1.5rem;
+        }
+    }
+
+    .card-number {
+        margin-bottom: 30px;
+        .label {
+            font-size: 0.8rem;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+    }
+
+    .card-details {
+        display: flex;
+        gap: 20px;
+
+        .detail-group {
+            width: 50%;
+            .label {
+                font-size: 0.8rem;
+                color: #666;
+                margin-bottom: 5px;
+            }
+            input {
+                width: 100%;
+                padding: 12px;
+                border: 1px solid #dee2e6;
+                border-radius: 5px;
+                font-size: 0.9rem;
+                outline: none;
+                transition: border-color 0.2s;
+            }
+        }
+    }
+
+    .button-group {
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+        margin-top: 30px;
+
+        .cancel-btn {
+            background: #f8f9fa !important;
+            color: #333 !important;
+            border-radius: 25px !important;
+            padding: 8px 25px !important;
+        }
+
+        .confirm-btn {
+            background: linear-gradient(45deg, #FF0000, #DB0071) !important;
+            border-radius: 25px !important;
+            padding: 8px 25px !important;
+        }
+    }
+} 
