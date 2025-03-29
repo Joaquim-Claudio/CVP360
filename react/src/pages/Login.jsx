@@ -1,6 +1,7 @@
 import React from "react";
 import LoginButton from "../components/LoginButton";
 import LoginInput from "../components/Input";
+import { Link } from "react-router-dom";
 
 function Login (){
     return(
@@ -9,7 +10,7 @@ function Login (){
                 <div className="pt-5 fw-semibold fs-2">
                     Login
                 </div>
-                <div className="pt-1 pb-4 fw-light fs-6 ">
+                <div className="pt-1 pb-4 fw-light texto-part  ">
                 Inicie sessão com a sua conta CVP360
                 </div>
                 <div className="pb-3 text-white">
@@ -21,15 +22,20 @@ function Login (){
                     placeholder="Password"/>
                     
                 </div>           
-                <LoginButton/>
-                <div className=" fw-lighter fs-6 text-center pt-1 pb-4">
+                <LoginButton
+                    text="Entrar"         
+                />
+                <div className=" fw-lighter text-center texto-part pt-3 pb-4">
                 Esqueci-me da password!
                 </div>
 
                 <hr/>
-                <div className="fw-light fs-6 text-center">
-                Ainda não tem conta CVP360? <span className="fw-bold">Crie uma.</span>
-                </div>
+                <Link 
+                    to="/register" 
+                    className="fw-lighter text-center texto-part" 
+                    style={{ textDecoration: "none", color: "inherit" }}>
+                    Ainda não tem conta CVP360? <span className="fw-bold">Crie uma.</span>
+                </Link>
             </div>
         </div>
     );

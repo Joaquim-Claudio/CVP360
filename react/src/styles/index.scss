@@ -17,6 +17,35 @@
     background-position: center;
 }
 
+.bg-cruz{
+    background: url(../assets/images/vetorCruzes.png) no-repeat right center;
+    background-size: contain;
+}
+
+.textLa{
+    font-size: 20px;
+}
+
+.textLa1{
+    font-size: 13px;
+}
+
+.cardLand{
+    position: relative;
+    top: 55px;
+    width: 310px;
+    height: 155px;
+    background: linear-gradient(45deg, #FF0000, #DB0071);
+    color: white;
+    border-radius:12px;
+}
+
+.textCardL{
+    font-size: 7pt;
+    
+}
+
+
 .RegisterBody{
     width: 400px;
     height: 570px;
@@ -28,7 +57,7 @@
 
 .LoginBody{
     width: 400px;
-    height: 450px;
+    height: 420px;
     color: white;   
     border: solid 2px #FF0000;
     border-radius: 35px;
@@ -864,3 +893,13 @@
         background: white;
     }
 }
+
+body{
+    background-color: #f8f9fa;
+    font-family: "Montserrat", sans-serif; 
+}
+
+.texto-part{
+    font-size: 13px;
+}
+

@@ -2,19 +2,21 @@ import React from "react";
 import { Link } from "react-router-dom";
 import imageEvent from "../assets/images/imageEvent.png";
 import Frame1 from "../assets/images/Frame1.png";
+import Logo from "../assets/images/LogoCVP.svg";
+import Footer from "../components/Footer";
 
 function Doacao() {
     return (
         <>
-            <nav className="navbar">
+            <nav className="navbar ps-2" style={{ height: "78px" }}>
                 <div className="container-fluid">
-                    <a className="navbar-brand fw-lighter text-light fs-2" href="#">CVP<span className="fs-2 fw-bold text-light">360</span></a>
+                <a className="navbar-brand fw-lighter " href="#"><img src={Logo} alt="" style={{ width: "100px", height: "auto" }}/></a>
                     <div className="nav-links">
-                        <Link to="/home" className="text-light text-decoration-none me-3 px-5">Home</Link>
-                        <Link to="/doacao" className="text-light text-decoration-none pr-5">Doação</Link>
+                        <Link to="/home" className="text-light fw-semibold text-decoration-none me-3 px-5">Home</Link>
+                        <Link to="/doacao" className="text-light fw-semibold text-decoration-none pr-5">Doação</Link>
                     </div>
                     <div className="user-info">
-                        <div className="user-details">
+                        <div className="user-details pe-2">
                             <div className="user-name">John Doe</div>
                             <div className="user-role">Volunteer</div>
                         </div>
@@ -28,7 +30,7 @@ function Doacao() {
                 <img src={Frame1} alt="Frame1" className="img-fluid w-100" style={{ height: '50vh', objectFit: 'cover' }} />
             </div>
             <div className="container mt-5">
-                <h1 className="mb-3">Doações Recentes</h1>
+                <h1 className="mb-3">As suas Doações</h1>
                 <div className="donation-cards-container">
                     <div className="donation-cards-row">
                         <div className="donation-card">
@@ -76,6 +78,7 @@ function Doacao() {
                     </div>
                 </div>
             </div>
+            <Footer/>
         </>
     );
 }
