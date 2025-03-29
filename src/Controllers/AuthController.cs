@@ -31,14 +31,14 @@ public class AuthController (IDistributedCache session) : Controller {
             if(string.IsNullOrWhiteSpace(jsonData)) {
 
                 HttpContext.Response.Cookies.Delete("connect.sid");
-                Console.WriteLine($"[{DateTime.Now}] From: {remote_ip} \"GET /api/accounts/auth {protocol}\" 401");
+                Console.WriteLine($"[{DateTime.Now}] From: {remote_ip} \"GET /api/auth {protocol}\" 401");
                 return Unauthorized("Session expired");
             }
 
             UserModel? _user = JsonSerializer.Deserialize<UserModel>(jsonData) ?? throw new Exception();
             _user.Password = "";
             
-            Console.WriteLine($"[{DateTime.Now}] From: {remote_ip} \"GET /api/accounts/auth {protocol}\" 200");
+            Console.WriteLine($"[{DateTime.Now}] From: {remote_ip} \"GET /api/auth {protocol}\" 200");
             return Ok(_user);
 
         } catch (Exception e) {

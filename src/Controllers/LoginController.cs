@@ -16,7 +16,7 @@ public class LoginController (  AppDbContext context,
                                 IDataProtectionProvider provider) : Controller {
     
     private readonly static double SESSION_EXPIRE_TIME_IN_HOURS = 12;
-    public readonly static string DATA_PROTECTOR_NAME = "accounts.protector";
+    public readonly static string DATA_PROTECTOR_NAME = "account.protector";
     private readonly AppDbContext _context = context;
     private readonly IDistributedCache _session = session;
     private readonly IDataProtector _protector = provider.CreateProtector(DATA_PROTECTOR_NAME);
