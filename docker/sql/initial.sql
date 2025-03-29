@@ -29,6 +29,8 @@ CREATE TABLE IF NOT EXISTS Users (
     Id SERIAL PRIMARY KEY,
     FullName TEXT NOT NULL,
     BirthDate DATE,
+    Email TEXT,
+    Password TEXT,
     PhoneNumber TEXT,
     Nif TEXT,
     ProfileId INTEGER REFERENCES Profile(Id) ON UPDATE CASCADE ON DELETE CASCADE ,
@@ -65,7 +67,7 @@ VALUES ('Admin', 'Administrador'),
        ('Donor', 'Doador'),
        ('Editor', 'Editor de Conteúdo');
 
-INSERT INTO page(Name, Url)
+INSERT INTO Page(Name, Url)
 VALUES('CVP360', '/'),
       ('Login', '/Login'),
       ('Register', '/Register'),
@@ -74,46 +76,46 @@ VALUES('CVP360', '/'),
       ('Profile', '/Profile'),
       ('Control Panel', '/ControlPanel');
 
-INSERT INTO profilepage(ProfileId, PageId)
-VALUES((SELECT Id FROM Profile WHERE Name = 'Admin'), (SELECT Id FROM page WHERE Name ='CVP360') ),
-      ((SELECT Id FROM Profile WHERE Name = 'Admin'), (SELECT Id FROM page WHERE Name ='Login')),
-      ((SELECT Id FROM Profile WHERE Name = 'Admin'), (SELECT Id FROM page WHERE Name ='Register')),
-      ((SELECT Id FROM Profile WHERE Name = 'Admin'), (SELECT Id FROM page WHERE Name ='Homepage')),
-      ((SELECT Id FROM Profile WHERE Name = 'Admin'), (SELECT Id FROM page WHERE Name ='Donations')),
-      ((SELECT Id FROM Profile WHERE Name = 'Admin'), (SELECT Id FROM page WHERE Name ='Profile')),
-      ((SELECT Id FROM Profile WHERE Name = 'Admin'), (SELECT Id FROM page WHERE Name ='Control Panel')),
+INSERT INTO ProfilePage(ProfileId, PageId)
+VALUES((SELECT Id FROM Profile WHERE Name = 'Admin'), (SELECT Id FROM Page WHERE Name ='CVP360') ),
+      ((SELECT Id FROM Profile WHERE Name = 'Admin'), (SELECT Id FROM Page WHERE Name ='Login')),
+      ((SELECT Id FROM Profile WHERE Name = 'Admin'), (SELECT Id FROM Page WHERE Name ='Register')),
+      ((SELECT Id FROM Profile WHERE Name = 'Admin'), (SELECT Id FROM Page WHERE Name ='Homepage')),
+      ((SELECT Id FROM Profile WHERE Name = 'Admin'), (SELECT Id FROM Page WHERE Name ='Donations')),
+      ((SELECT Id FROM Profile WHERE Name = 'Admin'), (SELECT Id FROM Page WHERE Name ='Profile')),
+      ((SELECT Id FROM Profile WHERE Name = 'Admin'), (SELECT Id FROM Page WHERE Name ='Control Panel')),
 
-      ((SELECT Id FROM Profile WHERE Name = 'Donor'), (SELECT Id FROM page WHERE Name ='CVP360') ),
-      ((SELECT Id FROM Profile WHERE Name = 'Donor'), (SELECT Id FROM page WHERE Name ='Login')),
-      ((SELECT Id FROM Profile WHERE Name = 'Donor'), (SELECT Id FROM page WHERE Name ='Register')),
-      ((SELECT Id FROM Profile WHERE Name = 'Donor'), (SELECT Id FROM page WHERE Name ='Homepage')),
-      ((SELECT Id FROM Profile WHERE Name = 'Donor'), (SELECT Id FROM page WHERE Name ='Donations')),
-      ((SELECT Id FROM Profile WHERE Name = 'Donor'), (SELECT Id FROM page WHERE Name ='Profile')),
+      ((SELECT Id FROM Profile WHERE Name = 'Donor'), (SELECT Id FROM Page WHERE Name ='CVP360') ),
+      ((SELECT Id FROM Profile WHERE Name = 'Donor'), (SELECT Id FROM Page WHERE Name ='Login')),
+      ((SELECT Id FROM Profile WHERE Name = 'Donor'), (SELECT Id FROM Page WHERE Name ='Register')),
+      ((SELECT Id FROM Profile WHERE Name = 'Donor'), (SELECT Id FROM Page WHERE Name ='Homepage')),
+      ((SELECT Id FROM Profile WHERE Name = 'Donor'), (SELECT Id FROM Page WHERE Name ='Donations')),
+      ((SELECT Id FROM Profile WHERE Name = 'Donor'), (SELECT Id FROM Page WHERE Name ='Profile')),
 
-      ((SELECT Id FROM Profile WHERE Name = 'Editor'), (SELECT Id FROM page WHERE Name ='Control Panel'));
+      ((SELECT Id FROM Profile WHERE Name = 'Editor'), (SELECT Id FROM Page WHERE Name ='Control Panel'));
 
 
 
-INSERT INTO Users (FullName, BirthDate, PhoneNumber, Nif, ProfileId)
-VALUES ('Diogo Pinheiro', '1996-06-15', '922369221', '305689444', (SELECT Id FROM Profile WHERE Name = 'Admin')),
-       ('João Pedro Júnior', '1977-05-22', '935874441', '225874136', (SELECT Id FROM Profile WHERE Name = 'Donor')),
-       ('Mário George Morais de Oliveira Igreja', '2004-04-13', '932555878', '298874441', (SELECT Id FROM Profile WHERE Name = 'Editor'));
+INSERT INTO Users (FullName, BirthDate, Email, Password, PhoneNumber, Nif, ProfileId)
+VALUES ('Diogo Pinheiro', '1996-06-15', 'diogo@gmail.com', 'AQAAAAEAACcQAAAAEILgaapz4GIn+ODY50qr1nkjouvw/ZqJNCLZXoMPKSZZZG0uVnRIhANu1KrsHaY5mQ==', '922369221', '305689444', (SELECT Id FROM Profile WHERE Name = 'Admin')),
+       ('João Pedro Júnior', '1977-05-22', 'joaopedro@gmail.com', 'AQAAAAEAACcQAAAAEFYYS2h1rZdng5BUmYD0ZDLbGXFskA0pyzUU/tWI5/T0EkQWTjIsVFc7E7KnE8SeSA==','935874441', '225874136', (SELECT Id FROM Profile WHERE Name = 'Donor')),
+       ('Mário George Morais de Oliveira Igreja', '2004-04-13', 'mariomorais@gmail.com', 'AQAAAAEAACcQAAAAEAP55FDAewczzXKgIKJ/AhvW41wBueqtCcVYMa9wTDuxUZ8hZ7gwV+Gmf+XHpPMQTA==', '932555878', '298874441', (SELECT Id FROM Profile WHERE Name = 'Editor'));
 
-INSERT INTO enrollmentstatus(status)
+INSERT INTO EnrollmentStatus (status)
 VALUES('Ativo'),
       ('Encerrado'),
       ('Aguarda Pagamento');
 
 
-INSERT INTO enrollment(date, value, enstatusid, userid)
-VALUES('2025-03-29', '10',(SELECT Id FROM enrollmentstatus WHERE status = 'Aguarda Pagamento') ),
-      ('2025-01-03', '1.99', (SELECT Id FROM enrollmentstatus WHERE status = 'Encerrado')),
-      ('2025-02-05', '50', (SELECT Id FROM enrollmentstatus WHERE status = 'Ativo')),
-      ('2025-02-05', '30', (SELECT Id FROM enrollmentstatus WHERE status = 'Encerrado'))
+INSERT INTO Enrollment (date, value, enstatusid, userid)
+VALUES('2025-03-29', 10,(SELECT Id FROM EnrollmentStatus WHERE status = 'Aguarda Pagamento'), 2),
+      ('2025-01-03', 1.99, (SELECT Id FROM EnrollmentStatus WHERE status = 'Encerrado'), 2),
+      ('2025-02-05', 50, (SELECT Id FROM EnrollmentStatus WHERE status = 'Ativo'), 2),
+      ('2025-02-05', 30, (SELECT Id FROM EnrollmentStatus WHERE status = 'Encerrado'), 2)
 
 ;
 
-INSERT INTO project (title, description, startdate, enddate, actiontext, imgurl)
+INSERT INTO Project (title, description, startdate, enddate, actiontext, imgurl)
 VALUES
     ('Campanha de Arrecadação de Alimentos',
      'Projeto destinado a arrecadar alimentos não perecíveis para as famílias carenciadas em diversas regiões.',
