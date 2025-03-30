@@ -7,8 +7,12 @@ import ImageCarousel from "../components/ImageCarousel";
 import '../styles/SubscribePopup.scss';
 import Logo from "../assets/images/LogoCVP.svg";
 import Footer from "../components/Footer";
+import Pessoas from "../assets/images/pessoas.png";
 
-function HomePage(){
+function HomePage({user}){
+
+    console.log(user);
+
     const handleSubscribe = () => {
         Swal.fire({
             html: `
@@ -59,7 +63,7 @@ function HomePage(){
         <>
         <nav className="navbar ps-2" style={{ height: "78px" }}>
         <div className="container-fluid">
-                   <a className="navbar-brand fw-lighter " href="#"><img src={Logo} alt="" style={{ width: "100px", height: "auto" }}/></a>
+                   <a className="navbar-brand fw-lighter " href=""><img src={Logo} alt="" style={{ width: "100px", height: "auto" }}/></a>
                     <div className="nav-links">
                         <Link to="/home" className="text-light  fw-semiboldtext-decoration-none me-3 px-5">Home</Link>
                         <Link to="/doacao" className="text-light fw-semibold text-decoration-none pr-5">Doação</Link>
