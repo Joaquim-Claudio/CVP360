@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace CVP360.Models;
 
-[Table("users")]
+[Table("enrollment")]
 public class Enrollment(int id, double value, DateOnly date, DateOnly limitDate) {
     [Column("id")]
     public int Id {get; set;} = id;

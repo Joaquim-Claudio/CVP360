@@ -107,7 +107,7 @@ public class LoginController (  AppDbContext context,
                         });
 
             Console.WriteLine($"[{DateTime.Now}] From: {remote_ip} \"POST /api/login {protocol}\" 200");
-            return Ok(_user);
+            return Ok();
 
         } catch (Exception e) {
 

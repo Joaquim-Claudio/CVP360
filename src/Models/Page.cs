@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace CVP360.Models;
 
-[Table("profile")]
+[Table("page")]
 public class Page(int id, string name, string? url) {
     [Column("id")]
     public int Id {get; set;} = id;

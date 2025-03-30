@@ -8,7 +8,7 @@ using Microsoft.Extensions.Caching.Distributed;
 namespace CVP360.Controllers;
 
 [ApiController]
-[Route("/api/auth")]
+[Route("/api/auth/")]
 public class AuthController (IDistributedCache session) : Controller {
     private readonly IDistributedCache _session = session;
 
