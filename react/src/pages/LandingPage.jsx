@@ -10,23 +10,23 @@ import Buildings from "../assets/images/buildings.png";
 import Pessoas from "../assets/images/pessoas.png";
 import CruzIcon from "../assets/images/cruzVermelha.png";
 import CardBlack from "../components/CardBlack";
+import "../styles/landing.scss";
 
 function LandingPage() {
     return (
         <>
-
-                    <nav className="navbar ps-2" style={{ height: "78px" }}>
-                        <div className="container-fluid">
-                        <a className="navbar-brand fw-lighter " href="#"><img src={Logo} alt="" style={{ width: "100px", height: "auto" }}/></a>
-                            
-                            <div className="user-info">
-                                <div className="user-details pe-2">
-                                <Link to="/login" className="text-light text-decoration-none border rounded-3 px-2 py-1 border-2">Doar</Link>
-                               
-                            </div>
-                            </div>
+            <nav className="navbar ps-2" style={{ height: "78px" }}>
+                <div className="container-fluid">
+                    <a className="navbar-brand fw-lighter" href="#">
+                        <img src={Logo} alt="" style={{ width: "100px", height: "auto" }}/>
+                    </a>
+                    <div className="user-info">
+                        <div className="user-details pe-2">
+                            <Link to="/login" className="text-light text-decoration-none border rounded-3 px-2 py-1 border-2">Doar</Link>
                         </div>
-                    </nav>
+                    </div>
+                </div>
+            </nav>
             
             <div className="main-content position-relative">
                 <img src={Pessoas} alt="Frame1" className="img-fluid w-100" style={{ height: '55vh', objectFit: 'cover' }} />
@@ -37,32 +37,29 @@ function LandingPage() {
                         <span className="display-4 fw-bold"> E AJUDAMOS</span>
                     </div>
                     <div className="mt-1" style={{ width: '50%'}}></div>
-                        <span className="fs-5">Junte-se à CVP360 e comece a fazer a diferença</span>
+                    <span className="fs-5">Junte-se à CVP360 e comece a fazer a diferença</span>
                 </div>
             </div>
+
             <div className="d-flex justify-content-between align-items-center bg-white pe-4 ps-4 py-5 bg-cruz">
-            <div>
-                <div className="fw-semibold pb-3 textLa">
-                    Uma aplicação criada com o propósito de unir <br/>e ajudar a mensagem que a 
-                    Cruz Vermelha <br/>transmite à 160 em Portugal.
+                <div>
+                    <div className="fw-semibold pb-3 textLa">
+                        Uma aplicação criada com o propósito de unir <br/>e ajudar a mensagem que a 
+                        Cruz Vermelha <br/>transmite à 160 em Portugal.
+                    </div>
+                    <div className="textLa1">
+                        Esta aplicação põe a tecnologia ao serviço do bem coletivo.<br/>
+                        Mantendo e cumprido os valores da Cruz Vermelha <br/>Portuguesa, 
+                        a aplicação está aberta a todos.
+                    </div>
                 </div>
-                <div className="textLa1">
-                    Esta aplicação põe a tecnologia ao serviço do bem coletivo.<br/>
-                    Mantendo e cumprido os valores da Cruz Vermelha <br/>Portuguesa, 
-                    a aplicação está aberta a todos.
+                
+                <div className="pe-5">
+                    <img className="pe-5 img-fluid" src={CruzIcon} alt="Cruz Vermelha" style={{ width: "300px", height: "auto" }} />
                 </div>
             </div>
-            
-            <div className="pe-5 ">
 
-            <img  className="pe-5 img-fluid" src={CruzIcon} alt="Cruz Vermelha" style={{ width: "300px", height: "auto" }} />
-            </div>
-        </div>
-
-        
-            
-
-            <div className=" pb-5 pt-5 bg-body-secondary">
+            <div className="pb-5 pt-5 bg-body-secondary">
                 <div className="container-fluid">
                     <div className="ps-4 mb-3">
                         <div className="fw-bold fs-4">
@@ -119,51 +116,50 @@ function LandingPage() {
             </div>
 
             <div className="">
-
-            <div className="row pt-5 justify-content-around gx-0">
-            <div className="pt-5 fw-semibold ps-4">
-                Algumas das nossas ações 
-            </div>
-            <div className="fw-normal ps-4 pb-4">
-                Alguns dos projetos que estamos envolvidos. 
-            </div>
-            <div className="container-fluid ps-4">
-                    <div className="row">
-                        <div className="col-4 mb-4">
-                            <CardBlack 
-                                title="Apoio a Idosos"
-                            />
-                        </div>
-                        <div className="col-4 mb-4">
-                            <CardBlack 
-                                title="Apoio a Vítimas de Violência"
-                            />
-                        </div>
-                        <div className="col-4 mb-4">
-                            <CardBlack 
-                                title="Apoio a Vítimas de Emergências"
-                            />
-                        </div>
-                        <div className="col-4 mb-4">
-                            <CardBlack 
-                                title="Apoio a Refugiados"
-                            />
-                        </div>
-                        <div className="col-4 mb-4">
-                            <CardBlack 
-                                title="Apoio Familiar e Habitacional"
-                            />
-                        </div>
-                        <div className="col-4 mb-4">
-                            <CardBlack 
-                                title="Apoio Humanitário Global"
-                            />
+                <div className="row pt-5 justify-content-around gx-0">
+                    <div className="pt-5 fw-semibold ps-4">
+                        Algumas das nossas ações 
+                    </div>
+                    <div className="fw-normal ps-4 pb-4">
+                        Alguns dos projetos que estamos envolvidos. 
+                    </div>
+                    <div className="container-fluid ps-4">
+                        <div className="row">
+                            <div className="col-4 mb-4">
+                                <CardBlack 
+                                    title="Apoio a Idosos"
+                                />
+                            </div>
+                            <div className="col-4 mb-4">
+                                <CardBlack 
+                                    title="Apoio a Vítimas de Violência"
+                                />
+                            </div>
+                            <div className="col-4 mb-4">
+                                <CardBlack 
+                                    title="Apoio a Vítimas de Emergências"
+                                />
+                            </div>
+                            <div className="col-4 mb-4">
+                                <CardBlack 
+                                    title="Apoio a Refugiados"
+                                />
+                            </div>
+                            <div className="col-4 mb-4">
+                                <CardBlack 
+                                    title="Apoio Familiar e Habitacional"
+                                />
+                            </div>
+                            <div className="col-4 mb-4">
+                                <CardBlack 
+                                    title="Apoio Humanitário Global"
+                                />
+                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
-            </div>
-            </div>
             <div className="pre-footer py-3" style={{ background: "linear-gradient(45deg, #FF0000, #DB0071)" }}>
                 <div className="container">
                     <div className="text-center mb-2">

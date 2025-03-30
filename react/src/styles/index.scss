@@ -1,87 +1,3 @@
-.LogBut{
-    background: linear-gradient(45deg, #FF0000, #DB0071);
-    color:white;
-    border: none;
-    border-radius: 8px;
-    width: 280px;
-    height: 35px;
-}
-
-.LoginPage{
-    height: 100vh;
-    display: flex;
-    align-items: center; 
-    justify-content: center; 
-    background: url(../assets/images/Frame1.png) ;
-    background-size: cover;
-    background-position: center;
-}
-
-.bg-cruz{
-    background: url(../assets/images/vetorCruzes.png) no-repeat right center;
-    background-size: contain;
-}
-
-.textLa{
-    font-size: 20px;
-}
-
-.textLa1{
-    font-size: 13px;
-}
-
-.cardLand{
-    position: relative;
-    top: 60px;
-    width: 310px;
-    height: 155px;
-    background: linear-gradient(45deg, #FF0000, #DB0071);
-    color: white;
-    border-radius:12px;
-}
-
-.textCardL{
-    font-size: 7pt;
-    
-}
-
-
-.RegisterBody{
-    width: 400px;
-    height: 570px;
-    color: white;   
-    border: solid 2px #FF0000;
-    border-radius: 35px;
-    background-color: rgba($color: #FFF, $alpha: 0.2);
-}
-
-.LoginBody{
-    width: 400px;
-    height: 420px;
-    color: white;   
-    border: solid 2px #FF0000;
-    border-radius: 35px;
-    background-color: rgba($color: #FFF, $alpha: 0.2);
-   
-}
-
-.LoginInput{
-    backdrop-filter: blur(4px);
-    border:solid 1px white;
-    backdrop-filter: blur(4px);
-    color: #FFF;
-    width: 280px;
-    height: 35px;
-    background: transparent;
-    border-radius: 8px;
-}
-
-.LoginInput::placeholder{
-    color: white;
-    font-size: 10pt;
-    padding: 20px;
-}
-
 .navbar{
     background: linear-gradient(45deg, #FF0000, #DB0071);
     color: #FFF;
@@ -573,77 +489,105 @@
     margin: 0 -15px;
     
     .donation-cards-row {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
-        padding: 0 15px;
-        
-        .donation-card {
-            width: 100%;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            background: white;
+        display: flex;
+        gap: 2rem;
+        flex-wrap: wrap;
+    }
+
+    .donation-card {
+        flex: 1;
+        min-width: 300px;
+        max-width: 400px;
+        background: white;
+        border-radius: 1rem;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        position: relative;
+
+        .card-image-container {
             position: relative;
-            
-            .card-image-container {
-                position: relative;
-                height: 40%;
-                width: 100%;
-            }
-            
+            height: 200px;
+            overflow: hidden;
+
             .card-image {
-                height: 100%;
                 width: 100%;
+                height: 100%;
                 object-fit: cover;
-                border-radius: 10px;
             }
 
-            .price-box {
+            .date-box {
                 position: absolute;
                 bottom: 15px;
                 right: 15px;
-                background: linear-gradient(45deg, #FF0000, #DB0071);
-                border-radius: 15px;
-                padding: 3px 6px;
-                color: white;
-                font-weight: 500;
-                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+                background: white;
+                padding: 3px 4px;
+                border-radius: 8px;
                 display: flex;
+                flex-direction: column;
                 align-items: center;
-                gap: 2px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
-                .amount {
+                .day {
                     font-size: 1.0rem;
+                    font-weight: bold;
+                    color: #333;
+                    line-height: 1;
                 }
 
-                .currency {
+                .month {
                     font-size: 0.8rem;
-                    opacity: 0.9;
+                    color: #666;
+                    text-transform: uppercase;
+                    margin-top: 2px;
                 }
             }
-            
-            .card-content {
-                padding: 15px;
-                padding-bottom: 60px;
-                
-                h1 {
-                    font-size: 1.2rem;
-                    margin-bottom: 0;
-                    margin-top: 12px;
-                    color: #111111;
-                }
-                
-                h4 {
-                    font-size: 0.7rem;
-                    margin-bottom: 25px;
-                    color: #7e7d7d;
-                }
-                
-                h3 {
-                    font-size: 0.9rem;
-                    color: #333;
-                    font-weight: 500;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+            padding-bottom: 60px;
+
+            h1 {
+                font-size: 1.2rem;
+                font-weight: bold;
+                margin-bottom: 0.5rem;
+                color: #111111;
+            }
+
+            h4 {
+                font-size: 0.7rem;
+                color: #7e7d7d;
+                margin-bottom: 1rem;
+            }
+
+            h3 {
+                font-size: 0.9rem;
+                color: #333;
+                font-weight: 500;
+                line-height: 1.5;
+            }
+        }
+
+        .card-actions {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            display: flex;
+            gap: 10px;
+
+            .card-btn {
+                font-size: small;
+                background: linear-gradient(45deg, #FF0000, #DB0071);
+                color: white;
+                border: none;
+                border-radius: 15px;
+                padding: 3px 6px;
+                font-weight: 500;
+                cursor: pointer;
+                transition: opacity 0.2s;
+
+                &:hover {
+                    opacity: 0.9;
                 }
             }
         }
@@ -734,6 +678,25 @@
     text-align: center;
     margin-top: 20px;
     transition: all 0.2s ease;
+}
+
+.load-more-btn {
+    width: 100%;
+    background: #fdfdfd;
+    color: #666;
+    border: 1px solid #dee2e6;
+    padding: 12px 25px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-align: center;
+    margin-top: 20px;
+    transition: all 0.2s ease;
+
+    &:hover {
+        background: #f5f5f5;
+    }
 }
 
 .card-display-box {
@@ -901,5 +864,36 @@ body{
 
 .texto-part{
     font-size: 13px;
+}
+
+.header-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.new-event-btn {
+    background: white;
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    background-image: linear-gradient(45deg, #FF0000, #DB0071);
+    border: 2px solid;
+    border-image: linear-gradient(45deg, #FF0000, #DB0071) 1;
+    padding: 6px 20px;
+    border-radius: 50px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 150px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+        opacity: 0.9;
+    }
 }
 
