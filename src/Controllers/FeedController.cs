@@ -10,7 +10,7 @@ namespace CVP360.Controllers;
 
 [ApiController]
 [Route("/api/feed/projects/")]
-public class FeddController (  AppDbContext context,
+public class FeedController (  AppDbContext context,
                                 IDistributedCache session) : Controller {
     
     private readonly int SESSION_EXPIRED_CODE = 0;
