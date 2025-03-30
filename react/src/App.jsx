@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 import Login from './pages/Login'
 import Register from './pages/Register'
 import HomePage from './pages/HomePage'
-import Doacao from './pages/Doacao'
+import Donations from './pages/Donations'
 import UserProfile from './pages/UserProfile'
 import LandingPage from './pages/LandingPage'
 import axios from 'axios';
@@ -66,7 +66,7 @@ function App() {
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/home" element={user ? <HomePage user={user} /> : <Navigate to="/login" replace/>} />
-        <Route path="/doacao" element={user ? <Doacao user={user} />: <Navigate to="/login" replace/>}/>
+        <Route path="/donations" element={user ? <Donations user={user} />: <Navigate to="/login" replace/>}/>
         <Route path="/profile" element={user? <UserProfile user={user} />: <Navigate to="/login" replace/>}/>
         <Route path="/register" element={!user ? <Register /> : <Navigate to="/home" replace/>} />
         <Route path="/login" element={!user ? <Login /> : <Navigate to="/home" replace/>} />

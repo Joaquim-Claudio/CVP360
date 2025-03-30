@@ -5,38 +5,20 @@ import AddCardPopup from "../components/AddCardPopup";
 import Logo from "../assets/images/LogoCVP.svg";
 import Footer from "../components/Footer"
 import Frame1 from "../assets/images/Frame1.png";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import Navbar from "../components/Navbar"
 
 
 function UserProfile({ user }) {
-    const logout_url=import.meta.env.VITE_ACCOUNT_LOGOUT_URL
+    const logout_url=import.meta.env.VITE_ACCOUNT_LOGOUT_URL;
+    const month = ["Jan","Fev","Mar","Abr","Mai","Jun","Jul","Ago","Set","Out","Nov","Dez"];
+
     const handleAddCard = () => {
         AddCardPopup();
     };
 
     return (
         <>
-            <nav className="navbar ps-2" style={{ height: "78px" }}>
-                <div className="container-fluid">
-                    <a className="navbar-brand fw-lighter " href="#">
-                        <img src={Logo} alt="Logo" style={{ width: "100px", height: "auto" }} />
-                    </a>
-                    <div className="nav-links">
-                        <Link to="/home" className="text-light fw-semibold text-decoration-none me-3 px-5">Home</Link>
-                        <Link to="/doacao" className="text-light fw-semibold text-decoration-none pr-5">Doação</Link>
-                    </div>
-                    <div className="user-info">
-                        <div className="user-details pe-2">
-                            <div className="user-name">{user.fullName}</div>
-                            <div className="user-role">{user.profile.extendedName}</div>
-                        </div>
-                        <Link to="/profile" className="user-image">
-                            <img src={Frame1} alt="User Profile" />
-                        </Link>
-                    </div>
-                </div>
-            </nav>
+            <Navbar user={user} />
 
             <div className="container mt-5">
                 <div className="profile-container">
@@ -58,7 +40,9 @@ function UserProfile({ user }) {
                                 </div>
                                 <div className="info-item">
                                     <p className="info-label fw-bold">Data de Nascimento</p>
-                                    <p className="info-value fs-6">{user.birthDate}</p>
+                                    <p className="info-value fs-6">
+                                        {new Date(user.birthDate).getDate()} {month[new Date(user.birthDate).getMonth()]} {new Date(user.birthDate).getFullYear()}
+                                        </p>
                                 </div>
                                 <div className="info-item">
                                     <p className="info-label fw-bold">Email</p>

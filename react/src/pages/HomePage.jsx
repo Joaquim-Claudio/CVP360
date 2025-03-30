@@ -1,14 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import Frame1 from "../assets/images/Frame1.png";
-import imageEvent from "../assets/images/imageEvent.png";
-import Swal from 'sweetalert2';
 import ImageCarousel from "../components/ImageCarousel";
 import '../styles/SubscribePopup.scss';
-import Logo from "../assets/images/LogoCVP.svg";
 import Footer from "../components/Footer";
-import Pessoas from "../assets/images/pessoas.png";
 import HomepageCard from "../components/HomepageCard";
+import Navbar from "../components/Navbar"
 import axios from 'axios';
 
 const feed = axios.create({
@@ -66,7 +61,6 @@ function HomePage({user}){
     }, [])
 
     if(projects) {
-        console.log(projects)
 
         const campaigns = projects.$values.filter(p => p.categoryId === 1);
         const events = projects.$values.filter(p => p.categoryId === 2);
@@ -93,31 +87,12 @@ function HomePage({user}){
             btnTxt={project.actionText}
             /> 
         )
-
-        console.log(eventCards)
-        console.log(campaignCards)
     }
 
     return(
         <>
-        <nav className="navbar ps-2" style={{ height: "78px" }}>
-        <div className="container-fluid">
-                   <a className="navbar-brand fw-lighter " href=""><img src={Logo} alt="" style={{ width: "100px", height: "auto" }}/></a>
-                    <div className="nav-links">
-                        <Link to="/home" className="text-light  fw-semiboldtext-decoration-none me-3 px-5">Home</Link>
-                        <Link to="/doacao" className="text-light fw-semibold text-decoration-none pr-5">Doação</Link>
-                    </div>
-                    <div className="user-info">
-                        <div className="user-details pe-2">
-                        <div className="user-name">{user.fullName}</div>
-                        <div className="user-role">{user.profile.extendedName}</div>
-                        </div>
-                        <Link to="/profile" className="user-image">
-                            <img src={Frame1} alt="User Profile" />
-                        </Link>
-                    </div>
-        </div>
-        </nav>
+            <Navbar user={user} />
+            
             <div className="main-content">
                 <ImageCarousel />
             </div>

@@ -1,9 +1,4 @@
  import React from "react";
- import { Link } from "react-router-dom";
- import imageEvent from "../assets/images/imageEvent.png";
- import Frame1 from "../assets/images/Frame1.png";
- import Logo from "../assets/images/LogoCVP.svg";
- import Footer from "./Footer";
  import Swal from 'sweetalert2';
  
  function HomepageCard({day, month, image, title, subtitle, context, btnTxt}) {
@@ -31,7 +26,7 @@
                                 </div>
                                 <div class="button-group">
                                     <input type="number" placeholder="Valor a doar" />
-                                    <button class="swal2-confirm swal2-styled confirm-btn" onclick="event.preventDefault(); Swal.close();">Confirmar</button>
+                                    <button class="swal2-confirm swal2-styled confirm-btn" onclick="event.preventDefault(); Swal.close();">Inscrever</button>
                                 </div>
                             </div>
                         </div>
