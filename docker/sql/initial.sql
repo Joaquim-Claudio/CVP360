@@ -121,7 +121,7 @@ VALUES
      '2025-04-01',
      '2025-05-01',
      'Inscrever-se',
-     ''),
+     '/src/assets/images/card1.webp'),
 
     ((SELECT Id FROM Category WHERE Name = 'Evento'),
      'Reabilitação de Infraestruturas de Saúde',
@@ -129,7 +129,7 @@ VALUES
      '2025-03-01',
      '2025-12-31',
      'Saber mais',
-     ''),
+     '/src/assets/images/card2.jpg'),
 
     ((SELECT Id FROM Category WHERE Name = 'Campanha'),
      'Apoio a Vítimas de Catástrofes Naturais',
@@ -137,7 +137,7 @@ VALUES
      '2025-03-15',
      '2025-06-15',
      'Inscrever-se',
-     ''),
+     '/src/assets/images/card3.avif'),
 
     ((SELECT Id FROM Category WHERE Name = 'Campanha'),
      'Educação para Prevenção de Doenças',
@@ -145,7 +145,7 @@ VALUES
      '2025-05-01',
      '2025-08-01',
      'Inscrever-se',
-     ''),
+     '/src/assets/images/card3.avif'),
 
     ((SELECT Id FROM Category WHERE Name = 'Evento'),
      'Apoio Psicológico a Refugiados',
@@ -153,7 +153,7 @@ VALUES
      '2025-06-01',
      '2025-09-01',
      'Saber mais',
-     '');
+     '/src/assets/images/card2.jpg');
 
 INSERT INTO EnrollmentStatus (status)
 VALUES('Ativo'),

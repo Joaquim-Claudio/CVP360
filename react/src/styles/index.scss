@@ -76,6 +76,7 @@
     border-radius: 8px;
 }
 
+
 .LoginInput::placeholder{
     color: white;
     font-size: 10pt;
@@ -373,6 +374,17 @@
             &:hover {
                 transform: scale(1.1);
             }
+        }
+
+        input {
+            backdrop-filter: blur(4px);
+            border:solid 0.2em rgba(0, 0, 0, 0.751);
+            backdrop-filter: blur(4px);
+            color: #000;
+            width: 280px;
+            height: 35px;
+            background: transparent;
+            border-radius: 8px;
         }
     }
 
@@ -902,4 +914,6 @@ body{
 .texto-part{
     font-size: 13px;
 }
+
+
 
