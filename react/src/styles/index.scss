@@ -1,3 +1,7 @@
+.pt-25 {
+    padding-top: 1.5rem !important;
+}
+
 .LogBut{
     background: linear-gradient(45deg, #FF0000, #DB0071);
     color:white;
@@ -32,7 +36,7 @@
 
 .cardLand{
     position: relative;
-    top: 55px;
+    top: 60px;
     width: 310px;
     height: 155px;
     background: linear-gradient(45deg, #FF0000, #DB0071);
@@ -74,12 +78,14 @@
     height: 35px;
     background: transparent;
     border-radius: 8px;
+    padding-left: 20px;
+    font-size: 13px;
 }
 
+
 .LoginInput::placeholder{
-    color: white;
+    color: rgba(255, 255, 255, 0.505);
     font-size: 10pt;
-    padding: 20px;
 }
 
 .navbar{
@@ -374,6 +380,17 @@
                 transform: scale(1.1);
             }
         }
+
+        input {
+            backdrop-filter: blur(4px);
+            border:solid 0.2em rgba(0, 0, 0, 0.751);
+            backdrop-filter: blur(4px);
+            color: #000;
+            width: 280px;
+            height: 35px;
+            background: transparent;
+            border-radius: 8px;
+        }
     }
 
     .switch {
@@ -447,7 +464,6 @@
         border-radius: 25px !important;
         font-weight: 500 !important;
         transition: all 0.2s !important;
-        text-transform: uppercase !important;
         font-size: 0.9rem !important;
         letter-spacing: 0.5px !important;
         
@@ -902,4 +918,6 @@ body{
 .texto-part{
     font-size: 13px;
 }
+
+
 

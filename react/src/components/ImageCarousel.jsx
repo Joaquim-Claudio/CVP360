@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import Frame1 from "../assets/images/Frame1.png";
+import Frame2 from "../assets/images/Frame2.png";
+import Pessoas from "../assets/images/pessoas.png";
+import Kid from "../assets/images/kid.png";
 
 function ImageCarousel() {
     const [currentIndex, setCurrentIndex] = useState(0);
-    const images = [Frame1, Frame1, Frame1, Frame1, Frame1]; // Using same image multiple times - to change 
+    const images = [Pessoas, Kid, Frame2, Frame1]; // Using same image multiple times - to change 
 
     useEffect(() => {
         const timer = setInterval(() => {
