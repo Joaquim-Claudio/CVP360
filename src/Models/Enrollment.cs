@@ -4,15 +4,15 @@ using System.Text.Json.Serialization;
 namespace CVP360.Models;
 
 [Table("enrollment")]
-public class Enrollment(int id, double value, DateOnly date, DateOnly limitDate) {
+public class Enrollment {
     [Column("id")]
-    public int Id {get; set;} = id;
+    public int? Id {get; set;}
     [Column("value")]
-    public double Value {get; set;} = value;
+    public double? Value {get; set;}
     [Column("date")]
-    public DateOnly Date {get; set;} = date;
+    public DateOnly? Date {get; set;}
     [Column("limitdate")]
-    public DateOnly LimitDate {get; set;} = limitDate;
+    public DateOnly? LimitDate {get; set;}
 
     [Column("enstatusid")]
     public int? EnStatusId { get; set; }
@@ -29,5 +29,13 @@ public class Enrollment(int id, double value, DateOnly date, DateOnly limitDate)
 
     [ForeignKey("ProjectId")]
     public Project? Project { get; set; } = null!;
+
+    public Enrollment() {}
+    public Enrollment(int id, double value, DateOnly date, DateOnly limitDate) {
+        Id = id;
+        Value = value;
+        Date = date;
+        LimitDate = limitDate;
+    }
 
 }

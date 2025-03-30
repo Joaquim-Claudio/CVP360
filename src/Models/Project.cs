@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace CVP360.Models;
 
@@ -22,6 +23,8 @@ public class Project {
     public int? CategoryId { get; set; }
     [ForeignKey("CategoryId")]
     public Category? Category { get; set; } = null!;
+    [JsonIgnore]
+    public ICollection<Enrollment>? CreditCards { get; set; } = [];
 
     public Project() {}
     public Project(int id, string title, string description, DateOnly? startDate, DateOnly? endDate, 
