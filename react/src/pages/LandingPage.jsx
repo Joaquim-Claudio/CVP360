@@ -61,47 +61,74 @@ function LandingPage() {
                     Algumas das funcionalidades que a app CVP360 tem. 
                 </div>
                 <div className="container-fluid ps-4"> 
-                <div className="row justify-content-between  ">
-                    <div className="col-4 ">
-                        <CardLand image={Calendar}
-                        title="Eventos"
-                        text="Ver e participar de eventos promovidos pela Cruz Vermelha  Portuguesa e seus parceiros."                        
-                        />
-                    </div>
-                    <div className="col-4">
-                        <CardLand  image={Buildings} 
-                        title="Projetos"
-                        text="Ver os projetos da Cruz Vermelha Portuguesa e apoiá-los com doações."                        
-                        />
-                    </div>
-                    <div className="col-4">
-                        <CardLand image={Heart}  
-                        title="Gerir Doações"
-                        text="Ver e gerir doações feitas pelo utilizador em projetos e eventos."
-                        />
+                    <div className="row justify-content-between">
+                        <div className="col-4">
+                            <CardLand 
+                                image={Calendar}
+                                title="Eventos"
+                                text="Ver e participar de eventos promovidos pela Cruz Vermelha Portuguesa e seus parceiros."                        
+                            />
+                        </div>
+                        <div className="col-4">
+                            <CardLand 
+                                image={Buildings} 
+                                title="Projetos"
+                                text="Ver os projetos da Cruz Vermelha Portuguesa e apoiá-los com doações."                        
+                            />
+                        </div>
+                        <div className="col-4">
+                            <CardLand 
+                                image={Heart}  
+                                title="Gerir Doações"
+                                text="Ver e gerir doações feitas pelo utilizador em projetos e eventos."
+                            />
+                        </div>
                     </div>
                 </div>
             </div>
-            
 
-            </div>
             <div className="">
 
             <div className="row pt-5 justify-content-around gx-0">
             <div className="pt-5 fw-semibold ps-4">
                 Algumas das nossas ações 
             </div>
-            <div className="fw-normal ps-4">
+            <div className="fw-normal ps-4 pb-4">
                 Alguns dos projetos que estamos envolvidos. 
             </div>
-                <div className="col-3 pt-5">
-                    <CardBlack/>
-                </div>
-                <div className="col-3 pt-5">
-                    <CardBlack/>
-                </div>
-                <div className="col-3 pt-5">
-                    <CardBlack/>
+            <div className="container-fluid ps-4">
+                    <div className="row">
+                        <div className="col-4 mb-4">
+                            <CardBlack 
+                                title="Apoio a Idosos"
+                            />
+                        </div>
+                        <div className="col-4 mb-4">
+                            <CardBlack 
+                                title="Apoio a Vítimas de Violência"
+                            />
+                        </div>
+                        <div className="col-4 mb-4">
+                            <CardBlack 
+                                title="Apoio a Vítimas de Emergências"
+                            />
+                        </div>
+                        <div className="col-4 mb-4">
+                            <CardBlack 
+                                title="Apoio a Refugiados"
+                            />
+                        </div>
+                        <div className="col-4 mb-4">
+                            <CardBlack 
+                                title="Apoio Familiar e Habitacional"
+                            />
+                        </div>
+                        <div className="col-4 mb-4">
+                            <CardBlack 
+                                title="Apoio Humanitário Global"
+                            />
+                        </div>
+                    </div>
                 </div>
 
             </div>
