@@ -5,7 +5,7 @@ import Frame1 from "../assets/images/Frame1.png";
 import Logo from "../assets/images/LogoCVP.svg";
 import Footer from "../components/Footer";
 
-function Doacao() {
+function Doacao({user}) {
     return (
         <>
             <nav className="navbar ps-2" style={{ height: "78px" }}>
@@ -17,11 +17,11 @@ function Doacao() {
                     </div>
                     <div className="user-info">
                         <div className="user-details pe-2">
-                            <div className="user-name">John Doe</div>
-                            <div className="user-role">Volunteer</div>
+                        <div className="user-name">{user.fullName}</div>
+                        <div className="user-role">{user.profile.extendedName}</div>
                         </div>
                         <Link to="/profile" className="user-image">
-                            <img src={imageEvent} alt="User Profile" />
+                            <img src={Frame1} alt="User Profile" />
                         </Link>
                     </div>
                 </div>
