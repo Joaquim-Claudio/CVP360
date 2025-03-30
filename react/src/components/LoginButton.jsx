@@ -1,8 +1,8 @@
 import React from "react";
 
-function LoginButton({text}){
+function LoginButton({text, type}){
     return(
-        <button className="LogBut fw-semibold fs-6"
+        <button className="LogBut fw-semibold fs-6" type={type}
         >
             {text}
         </button>
