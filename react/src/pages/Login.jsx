@@ -56,7 +56,7 @@ function Login (){
 
     if(isLoading) {
         Swal.fire({
-            title: "A vefificar a sua<br>identidade...",
+            title: "A verificar a sua<br>identidade...",
             didOpen: () => {
                 Swal.showLoading();
             }

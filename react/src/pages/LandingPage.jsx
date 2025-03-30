@@ -8,7 +8,10 @@ import Buildings from "../assets/images/buildings.png";
 import Pessoas from "../assets/images/pessoas.png";
 import CruzIcon from "../assets/images/cruzVermelha.png";
 import CardBlack from "../components/CardBlack";
-
+import imageCard1 from "../assets/images/image11.jpg"
+import imageCard2 from "../assets/images/image22.jpg";
+import imageCard3 from "../assets/images/image33.jpg"
+import imageBlack from "../assets/images/imageBlack.png"
 function LandingPage() {
     return (
         <>
@@ -126,23 +129,27 @@ function LandingPage() {
                 Alguns dos projetos em que estamos envolvidos. 
             </div>
             <div className="container-fluid ps-4">
-                    <div className="row">
+                    <div className="row pb-5">
                         <div className="col-4 mb-4">
                             <CardBlack 
+                            image={imageCard1}
                                 title="Apoio a refugiados"
                             />
                         </div>
                         <div className="col-4 mb-4">
                             <CardBlack 
+                            image={imageCard2}
                                 title="Apoio às famílias"
                             />
                         </div>
                         <div className="col-4 mb-4">
                             <CardBlack 
+                            image={imageCard3}
                                 title="Apoio humanitário global"
                             />
                         </div>
                     </div>
+                    
                 </div>
 
             </div>
@@ -150,8 +157,8 @@ function LandingPage() {
             <div className="pre-footer py-3" style={{ background: "linear-gradient(45deg, #FF0000, #DB0071)" }}>
                 <div className="container">
                     <div className="text-center mb-2">
-                        <h2 className="text-white mb-1">Siga o trabalho da Cruz Vermelha Portuguesa nas Redes Sociais</h2>
-                        <p className="text-white-50 fs-5">Acompanhe as principais crises humanitárias também nas nossas páginas.</p>
+                        <h4 className="text-white mb-1">Siga o trabalho da Cruz Vermelha Portuguesa nas redes sociais</h4>
+                        <p className="text-white-50 fs-6">Acompanhe as principais crises humanitárias também nas nossas páginas.</p>
                     </div>
                     <div className="d-flex justify-content-center gap-3">
                         <div className="social-icon rounded-4 d-flex align-items-center justify-content-center" style={{ width: "40px", height: "40px", background: "white" }}>
