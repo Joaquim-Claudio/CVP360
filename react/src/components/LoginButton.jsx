@@ -2,7 +2,7 @@ import React from "react";
 
 function LoginButton({text, type}){
     return(
-        <button className="LogBut fw-semibold fs-6" type={type}
+        <button className="LogBut fw-semibold fs-6 mt-3" type={type}
         >
             {text}
         </button>

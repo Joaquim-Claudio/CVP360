@@ -25,7 +25,7 @@
                                     </label>
                                 </div>
                                 <div class="button-group">
-                                    <input type="number" placeholder="Valor a doar" />
+                                    <input class="swal2-imput" type="number" placeholder="Valor a doar" />
                                     <button class="swal2-confirm swal2-styled confirm-btn" onclick="event.preventDefault(); Swal.close();">Inscrever</button>
                                 </div>
                             </div>
@@ -56,8 +56,8 @@
                             <div className="card-image-container">
                                 <img src={image} alt="Event 1" className="card-image" />
                                 <div className="date-box">
-                                    <span className="day">{day}</span>
-                                    <span className="month">{month}</span>
+                                    <span className="day">{String(day).padStart(2, "0")}</span>
+                                    <span className="month">{String(month).padStart(2, "0")}</span>
                                 </div>
                             </div>
                             <div className="card-content">

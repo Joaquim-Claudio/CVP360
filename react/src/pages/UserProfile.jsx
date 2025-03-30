@@ -6,15 +6,69 @@ import Logo from "../assets/images/LogoCVP.svg";
 import Footer from "../components/Footer"
 import Frame1 from "../assets/images/Frame1.png";
 import Navbar from "../components/Navbar"
+import axios from "axios";
+import Swal from "sweetalert2";
+
+
+const accounts = axios.create({
+    baseURL: import.meta.env.VITE_ACCOUNT_LOGOUT_URL,
+    withCredentials: true
+  })
 
 
 function UserProfile({ user }) {
-    const logout_url=import.meta.env.VITE_ACCOUNT_LOGOUT_URL;
+    const [isLoading, setIsLoading] = React.useState(false);
+
     const month = ["Jan","Fev","Mar","Abr","Mai","Jun","Jul","Ago","Set","Out","Nov","Dez"];
 
     const handleAddCard = () => {
         AddCardPopup();
     };
+
+    const handleLogoutClick = () => {
+        Swal.fire({
+            icon: "error",
+            title: "Terminar sessão",
+            text: "Tem certeza que pretende encerrar esta sessão?",
+            showCancelButton: true,
+            cancelButtonText: "Cancelar",
+            confirmButtonText: "Encerrar",
+            showLoaderOnConfirm: true
+        }).then(result => {
+            if(result.isConfirmed) {
+                handleLogout();
+            } else if(result.dismiss === Swal.DismissReason.cancel) {
+                Swal.close();
+            }
+        })
+    }
+
+    const handleLogout = () => {
+        setIsLoading(true)
+        
+        accounts.get()
+            .then((response) => {
+                if(response.status == 200) {
+                    setIsLoading(false)
+                    window.location.replace("/login")
+                }
+            })
+            .catch(error => {
+                if(!error.response) {
+                    console.error("No server response");
+                    setError(true)
+
+                    setTimeout(function() {
+                        setError(false);
+                    }, 3000)
+                }
+                else if (error.response?.status == 401) console.error("Response: " + error.response.status + " \"Unauthorized\"");
+                else console.error("Logout failed");
+        
+                setIsLoading(false)
+
+            });
+    }
 
     return (
         <>
@@ -27,7 +81,7 @@ function UserProfile({ user }) {
                             <img src={Frame1} alt="Profile" />
                         </div>
                         <div className="card-actions pt-5">
-                            <a className="text-dark" href={logout_url}>Terminar Sessão</a>
+                            <a className="text-danger pe-auto" href="#" onClick={handleLogoutClick}>Terminar sessão</a>
                         </div>
                     </div>
                     <div className="profile-info-section">

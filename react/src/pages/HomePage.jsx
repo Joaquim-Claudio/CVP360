@@ -5,6 +5,7 @@ import Footer from "../components/Footer";
 import HomepageCard from "../components/HomepageCard";
 import Navbar from "../components/Navbar"
 import axios from 'axios';
+import Swal from "sweetalert2";
 
 const feed = axios.create({
   baseURL: import.meta.env.VITE_ACCOUNT_FEED_URL,
@@ -19,12 +20,22 @@ function HomePage({user}){
       const [netError, setNetError] = React.useState(false);
       const [sessionExpired, setSessionExpired] = React.useState(false);
       const [isLoading, setIsLoading] = React.useState(true);
+
+      if(isLoading) {
+            Swal.fire({
+                title: "A carregar...",
+                didOpen: () => {
+                    Swal.showLoading();
+                }
+            })
+        }
     
       React.useEffect(function() {
         try {
             feed.get()
                 .then( (response) => {
                     setProjects(response.data)
+                    Swal.close();
                     setIsLoading(false)
                 })
         
@@ -49,7 +60,7 @@ function HomePage({user}){
                     else if (error.response?.status == 404) {
                         console.error("Response: " + error.response.status + " \"Not found\"");
                     }
-           
+                    Swal.close();
                     setIsLoading(false)
                 });
                 
@@ -70,8 +81,8 @@ function HomePage({user}){
             title = {project.title}
             subtitle="Organizado por Cruz Vermelha Portuguesa"
             context={project.description}
-            day={new Date(project.startDate).getDay()}
-            month={new Date(project.startDate).getMonth()}
+            day={new Date(project.startDate).getDate()}
+            month={new Date(project.startDate).getMonth()+1}
             btnTxt={project.actionText}
             /> 
         )
@@ -82,11 +93,12 @@ function HomePage({user}){
             title = {project.title}
             subtitle="Organizado por Cruz Vermelha Portuguesa"
             context={project.description}
-            day={new Date(project.startDate).getDay()}
-            month={new Date(project.startDate).getMonth()}
+            day={new Date(project.startDate).getDate()}
+            month={new Date(project.startDate).getMonth()+1}
             btnTxt={project.actionText}
             /> 
         )
+
     }
 
     return(

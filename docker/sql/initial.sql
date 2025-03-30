@@ -106,7 +106,7 @@ VALUES((SELECT Id FROM Profile WHERE Name = 'Admin'), (SELECT Id FROM Page WHERE
 
 INSERT INTO Users (FullName, BirthDate, Email, Password, PhoneNumber, Nif, ProfileId)
 VALUES ('Diogo Pinheiro', '1996-06-15', 'diogo@gmail.com', 'AQAAAAEAACcQAAAAEILgaapz4GIn+ODY50qr1nkjouvw/ZqJNCLZXoMPKSZZZG0uVnRIhANu1KrsHaY5mQ==', '922369221', '305689444', (SELECT Id FROM Profile WHERE Name = 'Admin')),
-       ('João Pedro Júnior', '1977-05-22', 'joaopedro@gmail.com', 'AQAAAAEAACcQAAAAEFYYS2h1rZdng5BUmYD0ZDLbGXFskA0pyzUU/tWI5/T0EkQWTjIsVFc7E7KnE8SeSA==','935874441', '225874136', (SELECT Id FROM Profile WHERE Name = 'Donor')),
+       ('João Pedro Júnior', '1977-05-22', 'joaopedro000@gmail.com', 'AQAAAAEAACcQAAAAEFYYS2h1rZdng5BUmYD0ZDLbGXFskA0pyzUU/tWI5/T0EkQWTjIsVFc7E7KnE8SeSA==','935874441', '225874136', (SELECT Id FROM Profile WHERE Name = 'Donor')),
        ('Mário George Morais de Oliveira Igreja', '2004-04-13', 'mariomorais@gmail.com', 'AQAAAAEAACcQAAAAEAP55FDAewczzXKgIKJ/AhvW41wBueqtCcVYMa9wTDuxUZ8hZ7gwV+Gmf+XHpPMQTA==', '932555878', '298874441', (SELECT Id FROM Profile WHERE Name = 'Editor'));
 
 INSERT INTO Category (Name)
@@ -121,7 +121,7 @@ VALUES
      '2025-04-01',
      '2025-05-01',
      'Inscrever-se',
-     '/src/assets/images/card1.webp'),
+     '/src/assets/images/card2.jpg'),
 
     ((SELECT Id FROM Category WHERE Name = 'Evento'),
      'Reabilitação de Infraestruturas de Saúde',
@@ -129,7 +129,7 @@ VALUES
      '2025-03-01',
      '2025-12-31',
      'Saber mais',
-     '/src/assets/images/card2.jpg'),
+     '/src/assets/images/card4.jpg'),
 
     ((SELECT Id FROM Category WHERE Name = 'Campanha'),
      'Apoio a Vítimas de Catástrofes Naturais',
@@ -145,7 +145,7 @@ VALUES
      '2025-05-01',
      '2025-08-01',
      'Inscrever-se',
-     '/src/assets/images/card3.avif'),
+     '/src/assets/images/card1.webp'),
 
     ((SELECT Id FROM Category WHERE Name = 'Evento'),
      'Apoio Psicológico a Refugiados',
@@ -153,7 +153,57 @@ VALUES
      '2025-06-01',
      '2025-09-01',
      'Saber mais',
-     '/src/assets/images/card2.jpg');
+     '/src/assets/images/card5.jpg'),
+
+    ((SELECT Id FROM Category WHERE Name = 'Evento'),
+     'Campanha de Doação de Sangue',
+     'Incentivar a doação de sangue para aumentar os estoques nos hospitais e salvar vidas.',
+     '2025-05-10',
+     '2025-07-15',
+     'Saber mais',
+     '/src/assets/images/card6.jpg'),
+
+    ((SELECT Id FROM Category WHERE Name = 'Evento'),
+     'Educação para Todos',
+     'Promover a inclusão escolar de crianças carenciadas, oferecendo materiais e apoio pedagógico.',
+     '2025-04-20',
+     '2025-08-30',
+     'Saber mais',
+     '/src/assets/images/card7.jpg'),
+
+    ((SELECT Id FROM Category WHERE Name = 'Campanha'),
+     'Reflorestamento Comunitário',
+     'Organizar ações de plantio de árvores para combater a desertificação e promover a sustentabilidade.',
+     '2025-03-15',
+     '2025-06-20',
+     'Inscrever-se',
+     '/src/assets/images/card8.jpg'),
+
+    ((SELECT Id FROM Category WHERE Name = 'Campanha'),
+     'Combate à Fome',
+     'Distribuir alimentos e refeições para comunidades vulneráveis, garantindo segurança alimentar.',
+     '2025-07-01',
+     '2025-10-01',
+     'Inscrever-se',
+     '/src/assets/images/card9.jpg'),
+
+    ((SELECT Id FROM Category WHERE Name = 'Evento'),
+     'Campanha de Doação de Alimentos',
+     'Arrecadação e distribuição de alimentos para comunidades carenciadas, garantindo o combate à fome e à desnutrição.',
+     '2025-07-10',
+     '2025-10-10',
+     'Saber mais',
+     '/src/assets/images/card10.jpg'),
+
+    ((SELECT Id FROM Category WHERE Name = 'Campanha'),
+     'Mutirão de Limpeza Ambiental',
+     'Organização de voluntários para a limpeza de praias, rios e espaços públicos, promovendo a conscientização ambiental.',
+     '2025-08-15',
+     '2025-11-15',
+     'Inscrever-se',
+     '/src/assets/images/card11.jpg');
+
+
 
 INSERT INTO EnrollmentStatus (status)
 VALUES('Ativo'),

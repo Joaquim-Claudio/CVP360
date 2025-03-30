@@ -3,6 +3,7 @@ import LoginButton from "../components/LoginButton";
 import LoginInput from "../components/Input";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 
 const accounts = axios.create({
@@ -11,8 +12,6 @@ const accounts = axios.create({
   })
 
 function Login (){
-
-
 
     const [success, setSuccess] = React.useState(false);
     const [error, setError] = React.useState(false);
@@ -37,11 +36,12 @@ function Login (){
     }
 
     function hideErrors() {
-        setInputClass(current => current.replaceAll(" red-border", ""));
-        setPaternClass(current => current.replaceAll(" show", ""));
-        setfailClass(current => current.replaceAll(" show", ""));
+        setfailClass(current => current.replaceAll(" show", "hide"));
     }
 
+    function showFail() {
+        setfailClass(current => current + " show");
+    }
 
     function handleUsernameChange(event) {
         setUsername(event.target.value);
@@ -53,27 +53,30 @@ function Login (){
         hideErrors();
     }
 
+
+    if(isLoading) {
+        Swal.fire({
+            title: "A vefificar a sua<br>identidade...",
+            didOpen: () => {
+                Swal.showLoading();
+            }
+        })
+    }
+
     function handleSubmit(event) {
         event.preventDefault();
-
-        if(!regex.test(username) || !regex.test(password)) {
-            showPatternError();
-            return;
-        }
-
+        setIsLoading(true)
         try {
-            setIsLoading(true);
 
             accounts.post( "/" ,{
                 username,
                 password
             }) .then( (response) => {
                 setIsLoading(false);
-
                 setSuccess(true);
-
                 setTimeout(function() {
                     setSuccess(false);
+                    Swal.close();
                     window.location.replace("/home");
                 }, 2000)
 
@@ -88,20 +91,22 @@ function Login (){
                             setError(false);
                         }, 3000)
                     }
-                    else if (error.response?.status == 401) {
-                        console.error("Response: " + error.response.status + " \"Unauthorized\"");
+                    else if (error.response?.status == 404) {
+                        console.error("Response: " + error.response.status + " \"NotFound\"");
                         showFail();
                     }
                     else console.error("Login failed");
-           
+                    
+                    Swal.close();
                     setIsLoading(false)
                 });
 
         } catch(err) {
             console.error(err)
         }
-        
+
     }
+        
 
     return(
         <div className="LoginPage">
@@ -130,7 +135,8 @@ function Login (){
                         onChange={handlePasswordChange}               
                         placeholder="Password"/>
                         
-                    </div>           
+                    </div>   
+
                     <LoginButton 
                         type="submit"
                         text="Entrar"         
