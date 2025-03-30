@@ -6,7 +6,7 @@ import CruzIcon from "../assets/images/cruzVermelha.png";
 
 function Footer(){
     return(
-        <footer className="bg-secondary-subtle py-3 d-flex justify-content-between align-items-center px-3 mt-5">
+        <footer className="bg-secondary-subtle py-3 d-flex justify-content-between align-items-center px-3">
             <img className="ms-2" src={LogoCol} alt="" style={{ width: "120px", height: "auto" }} />
     
             <div>
